@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoCo 2026 Documentation</title>
+
+  <!-- Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #fafafa;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    }
+    .content { display: flex; flex: 1; overflow: hidden; }
+    aside {
+      width: 250px;
+      background-color: #f8f9fa;
+      border-right: 1px solid #e5e7eb;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+      background-color: white;
+    }
+    pre {
+      background-color: #f6f8fa !important;
+      border-radius: 8px;
+      padding: 1em;
+      overflow-x: auto;
+      border: 1px solid #e5e7eb;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.9rem;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* Sidebar */
+    .active-link { color: #2563eb; font-weight: 600; }
+    .sidebar-file { cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; display: block; }
+    .sidebar-file:hover { background-color: #e0e7ff; }
+    .active-file { background-color: #c7d2fe; font-weight: 600; }
+
+    /* Markdown Heading Styles */
+    .markdown h1 { font-size: 2.25rem; font-weight: 700; margin-top: 2em; margin-bottom: 0.8em; color: #1f2937; scroll-margin-top: 90px; }
+    .markdown h2 { font-size: 1.875rem; font-weight: 700; margin-top: 1.8em; margin-bottom: 0.7em; color: #1f2937; scroll-margin-top: 90px; }
+    .markdown h3 { font-size: 1.5rem; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.6em; color: #1f2937; scroll-margin-top: 90px; }
+    .markdown p { margin-bottom: 1em; line-height: 1.6; color: #374151; }
+    .markdown ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1em; }
+    .markdown li { margin-bottom: 0.5em; }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="w-full bg-white shadow-sm flex items-center justify-between px-8 py-3">
+    <div class="flex items-center space-x-6">
+      <a href="https://gary3410.github.io/HCM-Challenge/" class="font-semibold text-xl text-blue-600">RoCo 2026</a>
+    </div>
+  </header>
+
+  <!-- Sidebar + Content -->
+  <div class="content">
+    <aside>
+      <h2 class="text-gray-700 font-semibold mb-4">Documentation</h2>
+      <div id="file-list" class="mb-4">
+        <span class="sidebar-file active-file" data-file="docs/overview.md">Overview</span>
+        <span class="sidebar-file" data-file="docs/installation.md">Installation</span>
+        <span class="sidebar-file" data-file="docs/examples.md">Examples</span>
+        <span class="sidebar-file" data-file="docs/troubleshooting.md">Troubleshooting</span>
+        <span class="sidebar-file" data-file="docs/data.md">Data</span>
+      </div>
+      <ul id="sidebar-links" class="space-y-2 text-sm"></ul>
+    </aside>
+
+    <main id="markdown-content" class="markdown max-w-none"></main>
+  </div>
+
+   <script>
+    const content = document.getElementById('markdown-content');
+    const sidebar = document.getElementById('sidebar-links');
+    let headers = []; // 当前文档 H1/H2 列表
+
+    function loadMarkdown(file) {
+      fetch(file)
+        .then(res => {
+          if (!res.ok) throw new Error('Failed to load markdown: ' + file);
+          return res.text();
+        })
+        .then(md => {
+          // 渲染 Markdown
+          content.innerHTML = marked.parse(md, {
+            highlight: (code, lang) => hljs.highlightAuto(code, [lang]).value
+          });
+          hljs.highlightAll();
+
+          // 清空旧导航
+          sidebar.innerHTML = '';
+          headers = content.querySelectorAll('h1, h2');
+          headers.forEach((h) => {
+            const id = h.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+            h.id = id;
+
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="#${id}" class="hover:underline block text-gray-700">${h.textContent}</a>`;
+            sidebar.appendChild(li);
+          });
+
+          // 自动高亮第一个标题
+          highlightCurrent();
+        })
+        .catch(err => console.error(err));
+    }
+
+    function highlightCurrent() {
+      let current = '';
+      headers.forEach(h => {
+        const rect = h.getBoundingClientRect();
+        if (rect.top <= 120) current = h.id;
+      });
+      document.querySelectorAll('#sidebar-links a').forEach(a => {
+        a.classList.remove('active-link');
+        if (a.getAttribute('href') === '#' + current) {
+          a.classList.add('active-link');
+        }
+      });
+    }
+
+    // 滚动监听，只绑定一次
+    window.addEventListener('scroll', highlightCurrent, { passive: true });
+
+    // 文件切换事件
+    const fileList = document.querySelectorAll('.sidebar-file');
+    fileList.forEach(el => {
+      el.addEventListener('click', () => {
+        fileList.forEach(f => f.classList.remove('active-file'));
+        el.classList.add('active-file');
+        loadMarkdown(el.dataset.file);
+      });
+    });
+
+    // 默认加载第一个文件
+    loadMarkdown(fileList[0].dataset.file);
+  </script>
+</body>
+</html>
