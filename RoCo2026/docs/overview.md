@@ -1,4 +1,4 @@
-# RoCo Challenge 2026
+# RoCo Challenge @ AAAI 2026
 ## 🌐 Challenge Overview
 The Gearbox assembly Assistance Challenge evaluates robotic systems in collaborative gearbox assembly within human-centric manufacturing environments. It targets scenarios where robots must work seamlessly with human operators. The challenge focuses on:
 
@@ -144,11 +144,13 @@ Collectively, these metrics evaluate both the effectiveness (task success and fu
 
 ## 🏅 Award
 
-[//]: # (- 🥇: xxxxxxxxx)
+- 🥇: $1000
 
-[//]: # (- 🥈: xxxxxxxxx)
+- 🥈: $600
 
-[//]: # (- 🥉: xxxxxxxxx)
+- 🥉: $400
+
+
 Technical Sharing and Award Ceremony for the Top 2 Winning Teams
 
 
