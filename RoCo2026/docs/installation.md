@@ -1,24 +1,9 @@
-# RoCo Challenge @ AAAI 2026
-
 ## 📋 Project Overview
 
-This repository contains the code and resources for **RoCo Challenge**. The challenge focuses on [ ].
+This repository contains the code and resources for **RoCo Challenge**. .
 
 This guide will be continuously updated.
 
-### Key Features
-
-- 🎯 **Task**: Gearbox assembly
-- 📊 **Dataset**: 100+ human demonstrations for each task
-- 🏆 **Evaluation Metric**: [ ]
-
-### Challenge Timeline
-
-- **Start Date**: Present Day
-- **Submission Deadline**: [Date]
-- **Final Results Announcement**: [Date]
-
----
 
 ## 🚀 Getting Started
 
@@ -26,167 +11,64 @@ This guide will be continuously updated.
 
 Before you begin, ensure you have the following installed:
 
-- Python 3.10
+- Python 3.11
 - CUDA 12.2
 - Git
 
 ### Clone the Repository
 
 ```bash
-git clone [ ]
-cd [ ]
+git clone https://github.com/rocochallenge/gearboxAssembly.git
 ```
 
 ---
 
-## 📦 Installation
+## Installation
 
-### 1. Create a Virtual Environment (Recommended)
+- Install Isaac Lab 2.3.0 with IsaacSim 5.0.0 by following the [installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html).
+  We recommend using the conda installation as it simplifies calling Python scripts from the terminal.
 
-```bash
-conda create -n roco python=3.11
-conda activate roco
-```
+- Clone or copy this project/repository separately from the Isaac Lab installation (i.e. outside the `IsaacLab` directory):
 
-### 2. Install Isaaclab
+- Using a python interpreter that has Isaac Lab installed, install the library in editable mode using:
 
-```bash
-[Follow Isaaclab guide]
-```
+    ```bash
+    # use 'PATH_TO_isaaclab.sh|bat -p' instead of 'python' if Isaac Lab is not installed in Python venv or conda
+    python -m pip install -e source/Galaxea_Lab_External
+    ```
 
-### 3. Install Dependencies
+- Verify that the extension is correctly installed by:
 
-```bash
-# Install required packages
-pip install -r requirements.txt
-```
+    - Listing the available tasks:
 
-### 4. Download Dataset
+        Note: It the task name changes, it may be necessary to update the search pattern `"Template-"`
+        (in the `scripts/list_envs.py` file) so that it can be listed.
 
-```bash
-# Download and prepare the dataset
-[python scripts/download_dataset.py]
-
-# OR manually download from [link]
-```
+        ```bash
+        # use 'FULL_PATH_TO_isaaclab.sh|bat -p' instead of 'python' if Isaac Lab is not installed in Python venv or conda
+        python scripts/list_envs.py
+        ```
 
 
+    - Running a task with dummy agents:
 
----
+        These include dummy agents that output zero or random agents. They are useful to ensure that the environments are configured correctly.
 
-## 🎯Baseline Fine-tuning
+        - Zero-action agent
 
-### Quick Start
+            ```bash
+            # use 'FULL_PATH_TO_isaaclab.sh|bat -p' instead of 'python' if Isaac Lab is not installed in Python venv or conda
+            python scripts/zero_agent.py --task=<TASK_NAME>
+            ```
+        - Random-action agent
 
-```bash
-# Fine-tune with default configuration
-python train.py --config configs/default.yaml
-```
+            ```bash
+            # use 'FULL_PATH_TO_isaaclab.sh|bat -p' instead of 'python' if Isaac Lab is not installed in Python venv or conda
+            python scripts/random_agent.py --task=<TASK_NAME>
+            ```
 
-### Configuration
 
-Modify the configuration file `configs/default.yaml` to customize your training:
-
-```yaml
-model:
-  name: "your-model-name"
-  pretrained: true
-  num_classes: 50
-
-training:
-  batch_size: 32
-  learning_rate: 1e-4
-  epochs: 50
-  optimizer: "adamw"
-  scheduler: "cosine"
-
-data:
-  train_path: "./data/train"
-  val_path: "./data/val"
-  test_path: "./data/test"
-  num_workers: 4
-```
-
-### Training Options
-
-#### ACT
-
-```bash
-
-```
-
-#### [pi0/...]
-
-```bash
-
-```
-
----
-
-## 📊 Evaluation
 
 ### Evaluate Model Performance
 
-```bash
-# Evaluate on validation set
-python evaluate.py \
-  --model ./checkpoints/best_model.pth \
-  --data-path ./data/val
-
-# Evaluate on test set
-python evaluate.py \
-  --model ./checkpoints/best_model.pth \
-  --data-path ./data/test \
-  --output results.csv
-```
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b []`)
-3. Commit your changes (`git commit -m '[]'`)
-4. Push to the branch (`git push origin []`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 📧 Contact
-
-- **Project Lead**: [Your Name] - [email@example.com]
-- **Project Link**: [https://github.com/username/repository-name](https://github.com/username/repository-name)
-- **Challenge Website**: [Challenge URL]
-
----
-
-## 🙏 Acknowledgments
-
-- [Dataset Source]
-- [Pretrained Model Source]
-- [Inspiration/Reference Papers]
-- [Contributors]
-
----
-
-## 📚 Citation
-
-If you use this code or find it helpful, please consider citing:
-
-```bibtex
-@misc{[roco]],
-  title={[roco]},
-  author={[name]},
-  year={2024},
-  publisher={GitHub},
-  howpublished={\url{[https://github.com/username/repository-name]}}
-}
-```
+TBA
