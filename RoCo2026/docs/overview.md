@@ -75,7 +75,7 @@ Collectively, these metrics evaluate both the effectiveness (task success and fu
 - **Evaluation:** Reproducibility re-runs for top-k; anomaly review
 - **Shortlist Notification:** Jan 12, 2026 — finalists invited to onsite
 
-### Phase C · Onsite Finals (Real-World) — Jan 26, 2026
+### Phase C · Onsite Finals (Real-World) — Jan 24, 2026
 - Check-in, safety briefing, calibration & dry-run slots
 - Official trials
 - Live demonstrations by top teams; awards & closing remarks
@@ -118,19 +118,19 @@ Collectively, these metrics evaluate both the effectiveness (task success and fu
 - Safety Briefing (~10 min)
 - Simulation Track Evaluation Recap — leaderboard highlights & finalists (~20 min)
 - Break / Turnover (~10 min)
-- Platform Setup/Calibration (~30 min, simultaneous with blocks above)
-- Real-World Track: Official Trials & Demonstrations (~25 min)
+- Setup & Calibration Sessions (~1–2 h per team)
+- Real-World Track: Official Trials & Demonstrations (~25 min per team)
 - Evaluation, Results & Closing Remarks (~25 min)
 
-*Indicative total ~1.5-2 hours*  
-*Notes: Blocks can be merged/trimmed to fit the workshop’s exact slot.*
+*Setup sessions are scheduled in overlapping 1–2 h windows to ensure total event duration remains within the workshop timeframe.*  
+*Notes: Parallel workstations may be used when multiple robots are available.*
 
 ---
 
 ## 🏢 Venue and Equipment
-- **Venue Requirements:** Demonstration area (~50m²) with 2–3 workbenches; audience seating with clear visibility
+- **Venue:** Advanced Remanufacturing and Technology Centre (ARTC);3 CleanTech Loop, #01/01, CleanTech Two, Singapore 637143
 
-- **Equipment:** Standardized gearbox kits; robotic platforms (to be provided by the organizers, e.g., Galaxea); cameras, projector/display for live visualization
+- **Equipment:** Standardized gearbox kits; Galaxea R1 Pro; cameras, projector/display for live visualization
 
 - **Software & Infrastructure:** Standardized deployment (Docker/ROS); high-speed internet access
 
