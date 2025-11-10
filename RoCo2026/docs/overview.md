@@ -60,12 +60,12 @@ Collectively, these metrics evaluate both the effectiveness (task success and fu
 **Cadence:** Preparation → Public Release → Online Competition (Simulation track) → Onsite Finals (Onsite track)
 
 
-### Phase A · Public Release — Nov 6, 2025
+### Phase A · Public Release — Nov 10, 2025
 - **Open:** Team registration; simulation submission portal.
 - **Publish:** Website, rules v1.0, dataset, evaluator, baselines; leaderboard policy.
 - **Comms:** Kick-off webinar & FAQ v1.0.
 
-### Phase B · Online Competition (Simulation) — Nov 6, 2025 → Jan 10, 2026
+### Phase B · Online Competition (Simulation) — Nov 10, 2025 → Jan 10, 2026
 - **Submission cadence:** Rolling; leaderboard refresh bi-weekly (Fri 18:00 UTC)
 - **Checkpoints:**
   - Rules Freeze: Dec 10, 2025 — thereafter only clarifications.
@@ -89,7 +89,7 @@ Collectively, these metrics evaluate both the effectiveness (task success and fu
 
 ---
 
-## 🏁 Workshop Day Competition Schedule
+## 🏁 Competition Day Schedule — Jan 24, 2026
 
 [//]: # (**Two possible schedules are proposed: 2-day format and 1-day format**)
 
