@@ -69,41 +69,56 @@ This metric jointly captures the effectiveness of robotic assembly strategies, a
 - **Shortlist Notification:** Jan 12, 2026 — finalists invited to onsite
 
 ### Phase C · Onsite Finals (Real-World) — Jan 24-26, 2026
-Day 1 — Team Setup & Calibration ( Jan 24 )
+#### Day 1 — Team Setup & Calibration ( Jan 24 )
 
-| Activity                                       | Duration | Description                                                                                |
-| ---------------------------------------------- | -------- | ------------------------------------------------------------------------------------------ |
-| **Welcome & Briefing**                         | ~20 min  | Opening remarks, competition overview, and safety protocol introduction.                   |
-| **System Registration & Workspace Assignment** | ~20 min  | Team check-in, workspace allocation, and hardware verification.                            |
-| **Team Calibration Sessions (Teams 1–3)**      | 3 × 2 h  | Each team receives a 2-hour slot for setup, robot calibration, and HRI protocol rehearsal. |
-| **Lunch / Networking Break**                   | ~1.5 h   | Informal interaction among teams, judges, and organizers.                                  |
-| **Team Calibration Sessions (Teams 4–6)**      | 3 × 2 h  | Environment integration, perception tuning, and dry-run validation for remaining teams.    |
-| **System Integration Check**                | ~1 h  | Unified review                              |
+- **Welcome & Briefing** (~20 min)  
+  Opening remarks, competition overview, and safety protocol introduction.
 
+- **System Registration & Workspace Assignment** (~20 min)  
+  Team check-in, workspace allocation, and hardware verification.
 
-Day 2 — Onsite Finals & Demonstrations ( Jan 25 )
+- **Team Calibration Sessions (Teams 1–3)** (3 × 2 h)  
+  Each team receives a 2-hour slot for setup, robot calibration, and HRI protocol rehearsal.
 
-| Activity                                  | Duration | Description                                                                                                                                      |
-| ----------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Final Briefing & Readiness Review**     | ~30 min  | Confirmation of competition environment and evaluation procedure.                                                                                |
-| **Unified Model Testing Phase**           | ~3–4 h   | All teams execute standardized test cases using the final models submitted at the end of Day 1; reproducibility and fairness verified by judges. |
-| **Official Onsite Trials**                | ~3 h     | Sequential evaluation of all teams following the unified testing stage; task success, assembly-order correctness recorded.       |
-| **Metric Computation & Feedback Session** | ~1 h     | Judges compute normalized task scores, review logs, and prepare preliminary ranking.                                                             |
+- **Lunch / Networking Break** (~1.5 h)  
+  Informal interaction among teams, judges, and organizers.
+
+- **Team Calibration Sessions (Teams 4–6)** (3 × 2 h)  
+  Environment integration, perception tuning, and dry-run validation for remaining teams.
+
+- **System Integration Check** (~1 h)  
+  Unified review
 
 ---
 
+#### Day 2 — Onsite Finals & Demonstrations ( Jan 25 )
 
-Day 3 — AAAI Workshop & Award Session ( Jan 26 )
+- **Final Briefing & Readiness Review** (~30 min)  
+  Confirmation of competition environment and evaluation procedure.
 
-| Activity                           | Duration | Description                                                                                                 |
-| ---------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| **Award Ceremony @ AAAI Venue**    | ~30 min  | Top 3 teams recognized at the AAAI HCM Workshop plenary; certificates and prizes presented.                 |
-| **Technical Talks by Top 2 Teams** | ~1 h     | Invited presentations on system design, policy architecture, and lessons learned during the RoCo Challenge. |
-| **Panel Discussion & Closing**     | ~30 min  | Round-table with organizers and participants on future directions of human-robot collaboration benchmarks.  |
+- **Unified Model Testing Phase** (~3–4 h)  
+  All teams execute standardized test cases using the final models submitted at the end of Day 1; reproducibility and fairness verified by judges.
+
+- **Official Onsite Trials** (~3 h)  
+  Sequential evaluation of all teams following the unified testing stage; task success, assembly-order correctness recorded.
+
+- **Metric Computation & Feedback Session** (~1 h)  
+  Judges compute normalized task scores, review logs, and prepare preliminary ranking.
+---
 
 
+#### Day 3 — AAAI Workshop & Award Session ( Jan 26 )
 
-**General Policies:**
+- **Award Ceremony @ AAAI Venue** (~30 min)  
+  Top 3 teams recognized at the AAAI HCM Workshop plenary; certificates and prizes presented.
+
+- **Technical Talks by Top 2 Teams** (~1 h)  
+  Invited presentations on system design, policy architecture, and lessons learned during the RoCo Challenge.
+
+- **Panel Discussion & Closing** (~30 min)  
+  Round-table with organizers and participants on future directions of human-robot collaboration benchmarks.
+
+#### General Policies:
 
 - **Submission format:** Docker image + config + README; fixed seeds; Maximum of 3 submissions per week per team.
 - **Revision control:** Evaluator is versioned; teams must declare the version used
