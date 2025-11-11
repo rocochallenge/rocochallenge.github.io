@@ -20,7 +20,7 @@ Two complementary tracks are designed: **Simulation** and **Onsite Track**. The 
 
 Robots are evaluated in a simulated gearbox assembly environment where the human role is abstracted as initial conditions. A single Simulation Task is defined, but it may include the following representative scenarios:
 
-•	**Collaborative Assembly from Scratch**: Starting from an empty state, where the robot completes the assembly pipeline as its contribution to a joint workflow.
+•	**Assembly from Scratch**: Starting from an empty state, where the robot completes the assembly pipeline as its contribution to a joint workflow.
 
 •	**Resume from Partial State**: The assembly has been partially completed by a “virtual human operator.” The robot must recognize the current state and continue to completion in the correct order.
 
@@ -40,21 +40,14 @@ Robots collaborate with human operators under clear HRI protocols (e.g., gesture
 ## 📋 Evaluation Metrics
 **Metrics applied to both tracks:**
 
-• **Task Success Rate:** Percentage of successful full assemblies within time/step constraints.
+• **Task Success Rate:** Each trial is scored on a normalized scale between 0 and 1.
 
-• **Assembly Time (Time-to-Completion):** Time required for successful assembly; exceeding timeout counts as failure.
+– A score of 1.0 is assigned if the assembly is fully completed and the assembly order is correct.
 
-• **Partial Assembly Score:** Number of correctly assembled components in failed trials.
+– For partially completed assemblies, the score is computed as the ratio of correctly assembled components to the total number of components (score = #assembled / #total).
 
-• **Functional Validation Rate:** Ratio of assemblies passing functional tests (gear engagement and rotation).
+This metric jointly captures the effectiveness of robotic assembly strategies, accounting for both full and partial task completion while ensuring correct assembly sequencing.
 
-**For Onsite Track (HRC optional extensions, if desired for awards):**
-
-• **Intervention Latency:** Time from error occurrence to the robot’s alert/correction initiation.
-
-Collectively, these metrics evaluate both the effectiveness (task success and functional correctness) and efficiency (time and partial progress) of robotic assembly strategies.
-
----
 
 ## 📅 Time Schedule
 **Cadence:** Preparation → Public Release → Online Competition (Simulation track) → Onsite Finals (Onsite track)
@@ -75,62 +68,55 @@ Collectively, these metrics evaluate both the effectiveness (task success and fu
 - **Evaluation:** Reproducibility re-runs for top-k; anomaly review
 - **Shortlist Notification:** Jan 12, 2026 — finalists invited to onsite
 
-### Phase C · Onsite Finals (Real-World) — Jan 24, 2026
-- Check-in, safety briefing, calibration & dry-run slots
-- Official trials
-- Live demonstrations by top teams; awards & closing remarks
+### Phase C · Onsite Finals (Real-World) — Jan 24-26, 2026
+Day 1 — Team Setup & Calibration ( Jan 24 )
+
+| Activity                                       | Duration | Description                                                                                |
+| ---------------------------------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| **Welcome & Briefing**                         | ~20 min  | Opening remarks, competition overview, and safety protocol introduction.                   |
+| **System Registration & Workspace Assignment** | ~20 min  | Team check-in, workspace allocation, and hardware verification.                            |
+| **Team Calibration Sessions (Teams 1–3)**      | 3 × 2 h  | Each team receives a 2-hour slot for setup, robot calibration, and HRI protocol rehearsal. |
+| **Lunch / Networking Break**                   | ~1.5 h   | Informal interaction among teams, judges, and organizers.                                  |
+| **Team Calibration Sessions (Teams 4–6)**      | 3 × 2 h  | Environment integration, perception tuning, and dry-run validation for remaining teams.    |
+| **System Integration Check**                | ~1 h  | Unified review                              |
+
+
+Day 2 — Onsite Finals & Demonstrations ( Jan 25 )
+
+| Activity                                  | Duration | Description                                                                                                                                      |
+| ----------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Final Briefing & Readiness Review**     | ~30 min  | Confirmation of competition environment and evaluation procedure.                                                                                |
+| **Unified Model Testing Phase**           | ~3–4 h   | All teams execute standardized test cases using the final models submitted at the end of Day 1; reproducibility and fairness verified by judges. |
+| **Official Onsite Trials**                | ~3 h     | Sequential evaluation of all teams following the unified testing stage; task success, assembly-order correctness recorded.       |
+| **Metric Computation & Feedback Session** | ~1 h     | Judges compute normalized task scores, review logs, and prepare preliminary ranking.                                                             |
+
+---
+
+
+Day 3 — AAAI Workshop & Award Session ( Jan 26 )
+
+| Activity                           | Duration | Description                                                                                                 |
+| ---------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| **Award Ceremony @ AAAI Venue**    | ~30 min  | Top 3 teams recognized at the AAAI HCM Workshop plenary; certificates and prizes presented.                 |
+| **Technical Talks by Top 2 Teams** | ~1 h     | Invited presentations on system design, policy architecture, and lessons learned during the RoCo Challenge. |
+| **Panel Discussion & Closing**     | ~30 min  | Round-table with organizers and participants on future directions of human-robot collaboration benchmarks.  |
+
+
 
 **General Policies:**
 
-- **Submission format:** Docker image + config + README; fixed seeds; max N submissions/week/team (e.g., 3)
+- **Submission format:** Docker image + config + README; fixed seeds; Maximum of 3 submissions per week per team.
 - **Revision control:** Evaluator is versioned; teams must declare the version used
 - **Safety & ethics:** Onsite follows posted HRI & E-stop policy; violations result in immediate disqualification of the run
 - **Comms:** FAQ updated weekly or as needed
 
 ---
 
-## 🏁 Competition Day Schedule — Jan 24, 2026
-
-[//]: # (**Two possible schedules are proposed: 2-day format and 1-day format**)
-
-[//]: # ()
-[//]: # (### 2-Day format)
-
-[//]: # (**Day 1**)
-
-[//]: # (- Welcome, Introduction & Rules &#40;~20 min&#41;)
-
-[//]: # (- Simulation Track Evaluation Recap — Leaderboard highlights & finalists &#40;~30 min&#41;)
-
-[//]: # ()
-[//]: # (**Day 2**)
-
-[//]: # (- Platform Setup/Calibration & Safety Briefing &#40;~15 min&#41;)
-
-[//]: # (- Real-World Track: Official Trials & Demonstrations &#40;~25 min&#41;)
-
-[//]: # (- Evaluation, Results & Closing Remarks &#40;~25 min&#41;)
-
-[//]: # ()
-[//]: # (*Indicative total ~1 hour each day*)
-
-- Welcome, Introduction & Rules (~15 min)
-- Safety Briefing (~10 min)
-- Simulation Track Evaluation Recap — leaderboard highlights & finalists (~20 min)
-- Break / Turnover (~10 min)
-- Setup & Calibration Sessions (~1–2 h per team)
-- Real-World Track: Official Trials & Demonstrations (~25 min per team)
-- Evaluation, Results & Closing Remarks (~25 min)
-
-*Setup sessions are scheduled in overlapping 1–2 h windows to ensure total event duration remains within the workshop timeframe.*  
-*Notes: Parallel workstations may be used when multiple robots are available.*
-
----
 
 ## 🏢 Venue and Equipment
-- **Venue:** Advanced Remanufacturing and Technology Centre (ARTC);3 CleanTech Loop, #01/01, CleanTech Two, Singapore 637143
+- **Locations:** Advanced Remanufacturing and Technology Centre (ARTC), Singapore
 
-- **Equipment:** Standardized gearbox kits; Galaxea R1 Pro; cameras, projector/display for live visualization
+- **Equipment:** Standardized gearbox kits; robotic platforms (to be provided by the organizers, e.g., Galaxea); cameras, projector/display for live visualization
 
 - **Software & Infrastructure:** Standardized deployment (Docker/ROS); high-speed internet access
 
