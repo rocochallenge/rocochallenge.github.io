@@ -37,16 +37,58 @@ Robots collaborate with human operators under clear HRI protocols (e.g., gesture
 
 ---
 
-## 📋 Evaluation Metrics
-**Metrics applied to both tracks:**
+## 🧭 Gearbox Assembly Evaluation Metrics
 
-• **Task Success Rate:** Each trial is scored on a normalized scale between 0 and 1.
+## Overview
+The benchmark evaluates robotic assembly performance through three tasks:
 
-– A score of 1.0 is assigned if the assembly is fully completed and the assembly order is correct.
+1. **Task 1 – Assembly from Scratch**  
+   Complete the entire assembly sequence from an empty state.  
 
-– For partially completed assemblies, the score is computed as the ratio of correctly assembled components to the total number of components (score = #assembled / #total).
+2. **Task 2 – Resume from Partial State**  
+   Continue a few predefined steps from a partially assembled state.  
 
-This metric jointly captures the effectiveness of robotic assembly strategies, accounting for both full and partial task completion while ensuring correct assembly sequencing.
+3. **Task 3 – Error Detection and Recovery**  
+   Detect and remove incorrect parts, then continue assembly.  
+
+Each task is scored from **0.0 – 1.0**.  
+The **final score** applies a **4 : 2 : 4** weighting scheme:
+
+`Final Score = (4*S1 + 2*S2 + 4*S3) / 10`
+
+---
+
+## Task 1 — Assembly from Scratch
+
+S1 = (# correctly assembled parts) / (# total parts)
+
+
+- Full completion → `S1 = 1.0`  
+- Partial completion → proportional score  
+- Parts assembled out of order are excluded from the correct count
+
+---
+
+## Task 2 — Resume from Partial State
+
+S2 = (# successfully completed target steps) / N
+
+
+- Each predefined step contributes `1/N`  
+- Only the announced target steps are evaluated
+
+---
+
+## Task 3 — Error Detection and Recovery
+
+S3 = 0.5 * (E_removed / E_total) + 0.5 * (P_correct / P_total)
+
+
+where  
+`E_removed` = number of incorrect parts removed,  
+`E_total` = total incorrect parts,  
+`P_correct` = number of correctly assembled parts after recovery,  
+`P_total` = total parts in final state.  
 
 
 ## 📅 Time Schedule
@@ -109,14 +151,11 @@ This metric jointly captures the effectiveness of robotic assembly strategies, a
 
 #### Day 3 — AAAI Workshop & Award Session ( Jan 26 )
 
-- **Award Ceremony @ AAAI Venue** (~30 min)  
+- **Award Ceremony @ AAAI Venue** (~10 min)  
   Top 3 teams recognized at the AAAI HCM Workshop plenary; certificates and prizes presented.
 
 - **Technical Talks by Top 2 Teams** (~1 h)  
   Invited presentations on system design, policy architecture, and lessons learned during the RoCo Challenge.
-
-- **Panel Discussion & Closing** (~30 min)  
-  Round-table with organizers and participants on future directions of human-robot collaboration benchmarks.
 
 #### General Policies:
 
