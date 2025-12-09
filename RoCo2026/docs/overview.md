@@ -99,6 +99,7 @@ where
 - **Open:** Team registration; simulation submission portal.
 - **Publish:** Website, rules v1.0, dataset, evaluator, baselines; leaderboard policy.
 - **Comms:** Kick-off webinar & FAQ v1.0.
+- **Note:** The registration deadline is the same as the submission deadline.
 
 ### Phase B · Online Competition (Simulation) — Nov 10, 2025 → Jan 10, 2026
 - **Submission cadence:** Rolling; leaderboard refresh bi-weekly (Fri 18:00 UTC)
@@ -192,6 +193,7 @@ where
 
 
 Technical Sharing and Award Ceremony for the Top 2 Winning Teams
+
 
 
 
