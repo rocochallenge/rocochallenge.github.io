@@ -104,7 +104,7 @@ where
 - **Submission cadence:** Rolling; leaderboard refresh bi-weekly (Fri 18:00 UTC)
 - **Checkpoints:**
   - Rules Freeze: Dec 10, 2025 — thereafter only clarifications.
-  - CP-1: Dec 13, 2025 — interim reportable results (auto-archived).
+  - CP-1: Dec 13, 2025 — interim reportable results (Not mandatory).
   - CP-2 (final online): Jan 10, 2026 — last leaderboard submission.
 - **Required package (Teams):** Docker image + logs; short method card (≤2 pages)
 - **Evaluation:** Reproducibility re-runs for top-k; anomaly review
@@ -192,5 +192,6 @@ where
 
 
 Technical Sharing and Award Ceremony for the Top 2 Winning Teams
+
 
 
