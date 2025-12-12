@@ -1,0 +1,36 @@
+[
+       {
+        "Team": "RocoBase-ACT",
+        "T1_Correctly": "_",
+        "T1_Total": "_",
+        "S1": "_",
+        "T2_Success": "_",
+        "T2_Total": "_",
+        "S2": "_",
+        "T3_Removed": "_",
+        "T3_Recovery": "_",
+        "T3_Total": "_",
+        "S3": "_",
+        "FinalScore": "_",
+        "Robot": "None",
+        "Algorithm": "ACT",
+        "Institution": "Roco Team"
+    },
+    {
+        "Team": "RocoBase-PI_0.5",
+        "T1_Correctly": "_",
+        "T1_Total": "_",
+        "S1": "_",
+        "T2_Success": "_",
+        "T2_Total": "_",
+        "S2": "_",
+        "T3_Removed": "_",
+        "T3_Recovery": "_",
+        "T3_Total": "_",
+        "S3": "_",
+        "FinalScore": "_",
+        "Robot": "None",
+        "Algorithm": "PI_0.5",
+        "Institution": "Roco Team"
+    }
+]
