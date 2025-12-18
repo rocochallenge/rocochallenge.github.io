@@ -8,10 +8,6 @@ For the environment installation, please refer to the GitHub repository of ACT.
 ```bash
 git clone https://github.com/tonyzhaozh/act.git
 ```
-Convert hdf5 to satisfy the act's training format
-```bash
-python ./data_preprocess_act.py
-```
 To train ACT
 ```bash
 python3 imitate_episodes.py \
@@ -21,4 +17,5 @@ python3 imitate_episodes.py \
 --num_epochs 2000  --lr 1e-5 \
 --seed 0
 ```
+
 Modify the task in `constants.py`
