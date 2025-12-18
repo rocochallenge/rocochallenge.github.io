@@ -18,4 +18,12 @@ python3 imitate_episodes.py \
 --seed 0
 ```
 
+#### Usage Example
+We have supported ACT rollout as an example in our environment, just run this command
+```bash
+# use 'FULL_PATH_TO_isaaclab.sh|bat -p' instead of 'python' if Isaac Lab is not installed in Python venv or conda
+python scripts/VLA_agent.py --task=Template-Galaxea-Lab-Agent-Direct-v0 --enable_cameras --checkpoint='Your-VLA-Checkpoint-File-Path'
+```
+Use this realization as a reference for deploying your own policies.
+
 Modify the task in `constants.py`
