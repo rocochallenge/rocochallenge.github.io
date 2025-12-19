@@ -68,7 +68,7 @@ To visualize the episode after it is collected, run
 
     python3 visualize_episodes.py --dataset_dir <data save dir> --episode_idx 0
 
-You can use the following script to process the dataset:
+You can use the following script to process the dataset in this [repo](https://github.com/rocochallenge/gearboxAssembly/tree/main/source/Galaxea_Lab_External/Galaxea_Lab_External/VLA/ACT/act):
 
 ```
 act/scripts/merge.py
@@ -103,4 +103,5 @@ python scripts/VLA_agent.py --task=Template-Galaxea-Lab-Agent-Direct-v0 --enable
 Use this realization as a reference for deploying your own policies.
 
 Modify the task in `constants.py`
+
 
