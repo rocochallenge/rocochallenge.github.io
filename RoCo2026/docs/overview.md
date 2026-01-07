@@ -101,15 +101,15 @@ where
 - **Comms:** Kick-off webinar & FAQ v1.0.
 - **Note:** The registration deadline is the same as the submission deadline.
 
-### Phase B · Online Competition (Simulation) — Nov 10, 2025 → Jan 10, 2026
+### Phase B · Online Competition (Simulation) — Nov 10, 2025 → Jan 17, 2026
 - **Submission cadence:** Rolling; leaderboard refresh bi-weekly (Fri 18:00 UTC)
 - **Checkpoints:**
   - Rules Freeze: Dec 10, 2025 — thereafter only clarifications.
   - CP-1: Dec 13, 2025 — interim reportable results (Not mandatory).
-  - CP-2 (final online): Jan 10, 2026 — last leaderboard submission.
+  - CP-2 (final online): Jan 17, 2026 — last leaderboard submission.
 - **Required package (Teams):** Docker image + logs; short method card (≤2 pages)
 - **Evaluation:** Reproducibility re-runs for top-k; anomaly review
-- **Shortlist Notification:** Jan 12, 2026 — finalists invited to onsite
+- **Shortlist Notification:** Jan 19, 2026 — finalists invited to onsite
 
 ### Phase C · Onsite Finals (Real-World) — Jan 24-26, 2026
 #### Day 1 — Team Setup & Calibration ( Jan 24 )
@@ -193,6 +193,7 @@ where
 
 
 Technical Sharing and Award Ceremony for the Top 2 Winning Teams
+
 
 
 
