@@ -29,7 +29,7 @@
         "T3_Recovery": "_",
         "T3_Total": "_",
         "S3": "0.00",
-        "FinalScore": "0.02",
+        "FinalScore": "0.025",
         "Robot": "None",
         "Algorithm": "None",
         "Institution": "None"
@@ -46,7 +46,7 @@
         "T3_Recovery": "_",
         "T3_Total": "_",
         "S3": "0.00",
-        "FinalScore": "0.08",
+        "FinalScore": "0.032",
         "Robot": "None",
         "Algorithm": "None",
         "Institution": "NTU"
@@ -63,7 +63,7 @@
         "T3_Recovery": "_",
         "T3_Total": "_",
         "S3": "0.00",
-        "FinalScore": "0.12",
+        "FinalScore": "0.038",
         "Robot": "None",
         "Algorithm": "None",
         "Institution": "Beihang University"
@@ -80,7 +80,7 @@
         "T3_Recovery": "_",
         "T3_Total": "_",
         "S3": "0.00",
-        "FinalScore": "0.075",
+        "FinalScore": "0.025",
         "Robot": "None",
         "Algorithm": "None",
         "Institution": "NUS"
