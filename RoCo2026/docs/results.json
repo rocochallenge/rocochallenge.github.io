@@ -1,36 +1,37 @@
 [
-       {
-        "Team": "RocoBase-ACT",
-        "T1_Correctly": "_",
-        "T1_Total": "_",
-        "S1": "_",
+      {
+        "Team": "Anonymous",
+        "T1_Correctly": "10",
+        "T1_Total": "100",
+        "S1": "0.10",
         "T2_Success": "_",
         "T2_Total": "_",
-        "S2": "_",
+        "S2": "0",
         "T3_Removed": "_",
         "T3_Recovery": "_",
         "T3_Total": "_",
-        "S3": "_",
-        "FinalScore": "_",
+        "S3": "0",
+        "FinalScore": "0.04",
         "Robot": "None",
-        "Algorithm": "ACT",
-        "Institution": "Roco Team"
+        "Algorithm": "None",
+        "Institution": "None"
     },
+
     {
-        "Team": "RocoBase-PI_0.5",
-        "T1_Correctly": "_",
-        "T1_Total": "_",
-        "S1": "_",
+        "Team": "Anonymous",
+        "T1_Correctly": "5",
+        "T1_Total": "100",
+        "S1": "0.05",
         "T2_Success": "_",
         "T2_Total": "_",
-        "S2": "_",
+        "S2": "0",
         "T3_Removed": "_",
         "T3_Recovery": "_",
         "T3_Total": "_",
-        "S3": "_",
-        "FinalScore": "_",
+        "S3": "0",
+        "FinalScore": "0.02",
         "Robot": "None",
-        "Algorithm": "PI_0.5",
-        "Institution": "Roco Team"
+        "Algorithm": "None",
+        "Institution": "None"
     }
 ]
