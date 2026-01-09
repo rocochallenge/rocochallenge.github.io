@@ -90,6 +90,10 @@ where
 `P_correct` = number of correctly assembled parts after recovery,  
 `P_total` = total parts in final state.  
 
+## Definition of Parts and Assembly Correctness (Task 1–3)
+A correctly assembled part is defined as a part that is successfully picked and placed at its intended target position with the correct spatial configuration. If a part is successfully picked but placed at an incorrect position or with an incorrect configuration, it is considered partially correct and receives a half-score (0.5). Parts that are not picked, are dropped, or remain incorrectly placed receive a score of 0.
+
+---
 
 ## 📅 Time Schedule
 **Cadence:** Preparation → Public Release → Online Competition (Simulation track) → Onsite Finals (Onsite track)
@@ -193,6 +197,7 @@ where
 
 
 Technical Sharing and Award Ceremony for the Top 2 Winning Teams
+
 
 
 
