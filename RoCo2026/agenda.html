@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoCo Competition Schedule</title>
+
+<style>
+/* ----- Basic Reset ----- */
+:root{
+  --bg:#ffffff;
+  --fg:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --header:#0f172a;
+  --accent:#5865F2;
+  --tableHead:#f3f4f6;
+  --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* ----- Navbar (keep consistent with your other pages) ----- */
+.navbar{
+  background:#222;
+  padding:12px 20px;
+  display:flex;
+  gap:20px;
+}
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+}
+.navbar a:hover{ text-decoration: underline; }
+
+/* ----- Layout ----- */
+.container{
+  margin: 22px auto;
+  width: 95%;
+  max-width: 1100px;
+}
+
+.page-title{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  margin: 12px 0 16px;
+}
+.page-title h1{
+  margin:0;
+  font-size: 26px;
+  color: var(--header);
+  letter-spacing: 0.2px;
+}
+.page-title .subtitle{
+  margin:0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ----- Cards ----- */
+.day-card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px 16px 12px;
+  margin-bottom: 14px;
+}
+
+.day-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom: 10px;
+}
+.day-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#fff;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+.day-title{
+  margin:0;
+  font-size: 18px;
+  color: var(--header);
+}
+.day-date{
+  margin:0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ----- Table ----- */
+.table-wrap{
+  overflow-x:auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  background: #fff;
+}
+thead th{
+  background: var(--tableHead);
+  color: #111827;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 10px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+}
+tbody td{
+  padding: 10px 10px;
+  font-size: 13px;
+  border-bottom:1px solid var(--border);
+  color: #111827;
+  vertical-align: top;
+}
+tbody tr:last-child td{
+  border-bottom:none;
+}
+.col-time{ width: 160px; white-space: nowrap; color:#0f172a; font-weight: 700; }
+.col-activity{ width: 260px; font-weight: 700; }
+.col-duration{ width: 110px; white-space: nowrap; color:#0f172a; }
+.col-desc{ color:#374151; }
+
+/* ----- Notes ----- */
+.note{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  background: #fafafa;
+}
+.note strong{ color:#111827; }
+
+/* ----- Footer ----- */
+.footer{
+  margin: 18px 0 30px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ----- Dark Mode (optional, mirrors your leaderboard style) ----- */
+.dark-mode{
+  --bg:#0b1220;
+  --fg:#e5e7eb;
+  --muted:#9ca3af;
+  --card:#0f172a;
+  --border:#1f2937;
+  --header:#e5e7eb;
+  --tableHead:#111827;
+  --shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+.dark-mode .day-card{ background: var(--card); }
+.dark-mode table{ background: var(--card); }
+.dark-mode thead th{ color:#e5e7eb; }
+.dark-mode tbody td{ color:#e5e7eb; }
+.dark-mode .col-desc{ color:#cbd5e1; }
+.dark-mode .note{ background:#0b1220; }
+.tools{
+  display:flex;
+  justify-content:flex-end;
+  margin: 10px 0 14px;
+}
+button{
+  padding: 7px 10px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #f3f4f6;
+  color:#111827;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.dark-mode button{
+  background: #111827;
+  color: #e5e7eb;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a href="doc.html">Overview</a>
+  <a href="index.html">Homepage</a>
+  <a href="leaderboard.html">Leaderboard</a>
+</div>
+
+<div class="container">
+
+  <div class="page-title">
+    <h1>RoCo Challenge@AAAI 2026 Schedule</h1>
+    <p class="subtitle">Onsite timeline for teams, judges, and organizers</p>
+  </div>
+
+  <div class="tools">
+    <button id="toggleThemeBtn" onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+
+  <!-- Day 1 -->
+  <section class="day-card">
+    <div class="day-head">
+      <div class="day-badge">
+        <span class="badge">Day 1</span>
+        <h2 class="day-title">Team Setup & Calibration</h2>
+      </div>
+      <p class="day-date">Jan 24, 2026</p>
+    </div>
+
+    <div class="table-wrap">
+      <table aria-label="Day 1 Schedule">
+        <thead>
+          <tr>
+            <th class="col-time">Time</th>
+            <th class="col-activity">Activity</th>
+            <th class="col-duration">Duration</th>
+            <th class="col-desc">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">Welcome & Briefing</td>
+            <td class="col-duration">~20 min</td>
+            <td class="col-desc">Opening remarks, competition overview, and safety protocol introduction.</td>
+          </tr>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">System Registration & Workspace Assignment</td>
+            <td class="col-duration">~20 min</td>
+            <td class="col-desc">Team check-in, workspace allocation, and hardware verification.</td>
+          </tr>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">Team Calibration Sessions (Teams 1–3)</td>
+            <td class="col-duration">3 × 2 h</td>
+            <td class="col-desc">Each team receives a 2-hour slot for setup, robot calibration, and HRI protocol rehearsal.</td>
+          </tr>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">Lunch / Networking Break</td>
+            <td class="col-duration">~1.5 h</td>
+            <td class="col-desc">Informal interaction among teams, judges, and organizers.</td>
+          </tr>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">Team Calibration Sessions (Teams 4–6)</td>
+            <td class="col-duration">3 × 2 h</td>
+            <td class="col-desc">Environment integration, perception tuning, and dry-run validation for remaining teams.</td>
+          </tr>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">System Integration Check</td>
+            <td class="col-duration">~1 h</td>
+            <td class="col-desc">Unified review to confirm system readiness and onsite integration status.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> Day 1 runs on a slot-based schedule. Exact start times and team slot assignments will be announced onsite.
+    </div>
+  </section>
+
+  <!-- Day 2 -->
+  <section class="day-card">
+    <div class="day-head">
+      <div class="day-badge">
+        <span class="badge">Day 2</span>
+        <h2 class="day-title">Onsite Finals & Demonstrations</h2>
+      </div>
+      <p class="day-date">Jan 25, 2026</p>
+    </div>
+
+    <div class="table-wrap">
+      <table aria-label="Day 2 Schedule">
+        <thead>
+          <tr>
+            <th class="col-time">Time</th>
+            <th class="col-activity">Activity</th>
+            <th class="col-duration">Duration</th>
+            <th class="col-desc">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-time">09:00 – 09:30</td>
+            <td class="col-activity">Final Briefing & Readiness Review</td>
+            <td class="col-duration">30 min</td>
+            <td class="col-desc">Confirmation of competition environment, evaluation procedure, and final equipment checks.</td>
+          </tr>
+          <tr>
+            <td class="col-time">09:30 – 12:30</td>
+            <td class="col-activity">Model Testing Phase</td>
+            <td class="col-duration">3 h</td>
+            <td class="col-desc">Execution of all submitted final models to verify result reproducibility and ensure evaluation fairness.</td>
+          </tr>
+          <tr>
+            <td class="col-time">12:30 – 13:30</td>
+            <td class="col-activity">Lunch Break</td>
+            <td class="col-duration">1 h</td>
+            <td class="col-desc">Lunch and rest period.</td>
+          </tr>
+          <tr>
+            <td class="col-time">13:30 – 17:30</td>
+            <td class="col-activity">Official Onsite Trials</td>
+            <td class="col-duration">4 h</td>
+            <td class="col-desc">Formal onsite demonstrations conducted in sequence; task success rate and assembly accuracy are recorded.</td>
+          </tr>
+          <tr>
+            <td class="col-time">17:30 – 18:30</td>
+            <td class="col-activity">Metric Computation & Feedback</td>
+            <td class="col-duration">1 h</td>
+            <td class="col-desc">Final score computation, log review, and ranking preparation by the evaluation committee.</td>
+          </tr>
+          <tr>
+            <td class="col-time">After 18:30</td>
+            <td class="col-activity">Day 2 Wrap-up</td>
+            <td class="col-duration">–</td>
+            <td class="col-desc">End of Day 2 schedule.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> All times are local onsite time unless otherwise announced by organizers.
+    </div>
+  </section>
+
+  <!-- Day 3 -->
+  <section class="day-card">
+    <div class="day-head">
+      <div class="day-badge">
+        <span class="badge">Day 3</span>
+        <h2 class="day-title">Awards & Technical Talks (AAAI Venue)</h2>
+      </div>
+      <p class="day-date">Jan 26, 2026</p>
+    </div>
+
+    <div class="table-wrap">
+      <table aria-label="Day 3 Schedule">
+        <thead>
+          <tr>
+            <th class="col-time">Time</th>
+            <th class="col-activity">Activity</th>
+            <th class="col-duration">Duration</th>
+            <th class="col-desc">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">Award Ceremony @ AAAI Venue</td>
+            <td class="col-duration">~10 min</td>
+            <td class="col-desc">Top 3 teams recognized at the AAAI HCM Workshop plenary; certificates and prizes presented.</td>
+          </tr>
+          <tr>
+            <td class="col-time">TBA</td>
+            <td class="col-activity">Technical Talks by Top 2 Teams</td>
+            <td class="col-duration">~1 h</td>
+            <td class="col-desc">Invited presentations on system design, policy architecture, and lessons learned during the RoCo Challenge.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> Day 3 times will follow the AAAI HCM Workshop plenary schedule and will be confirmed by the workshop organizers.
+    </div>
+  </section>
+
+  <div class="footer">
+    © RoCo Challenge. Schedule subject to change by the organizing committee.
+  </div>
+
+</div>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+}
+</script>
+
+</body>
+</html>
