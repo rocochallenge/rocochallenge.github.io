@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoCo Onsite Experiments</title>
+
+<style>
+/* ===== Same CSS layout style as the schedule page ===== */
+:root{
+  --bg:#ffffff;
+  --fg:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --header:#0f172a;
+  --accent:#5865F2;
+  --tableHead:#f3f4f6;
+  --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Navbar */
+.navbar{
+  background:#222;
+  padding:12px 20px;
+  display:flex;
+  gap:20px;
+}
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+}
+.navbar a:hover{ text-decoration: underline; }
+
+/* Layout */
+.container{
+  margin: 22px auto;
+  width: 95%;
+  max-width: 1100px;
+}
+
+.page-title{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  margin: 12px 0 16px;
+}
+.page-title h1{
+  margin:0;
+  font-size: 26px;
+  color: var(--header);
+  letter-spacing: 0.2px;
+}
+.page-title .subtitle{
+  margin:0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Tools (dark mode toggle) */
+.tools{
+  display:flex;
+  justify-content:flex-end;
+  margin: 10px 0 14px;
+}
+button{
+  padding: 7px 10px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #f3f4f6;
+  color:#111827;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* Cards */
+.card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px 16px 12px;
+  margin-bottom: 14px;
+}
+
+.card h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--header);
+}
+.card p{
+  margin: 0 0 10px;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.kv{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.kv .item{
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+/* Table */
+.table-wrap{
+  overflow-x:auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  background: #fff;
+}
+thead th{
+  background: var(--tableHead);
+  color: #111827;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 10px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+}
+tbody td{
+  padding: 10px 10px;
+  font-size: 13px;
+  border-bottom:1px solid var(--border);
+  color: #111827;
+  vertical-align: top;
+}
+tbody tr:last-child td{ border-bottom:none; }
+.col-task{ width: 120px; white-space: nowrap; font-weight: 800; color:#0f172a; }
+.col-def{ width: 320px; font-weight: 700; }
+.col-notes{ color:#374151; }
+
+/* Note */
+.note{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  background: #fafafa;
+}
+.note strong{ color:#111827; }
+
+/* Video */
+.video-wrap{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+.video-wrap iframe{
+  width: 100%;
+  height: 520px;
+  border: 0;
+}
+
+/* Footer */
+.footer{
+  margin: 18px 0 30px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Dark mode */
+.dark-mode{
+  --bg:#0b1220;
+  --fg:#e5e7eb;
+  --muted:#9ca3af;
+  --card:#0f172a;
+  --border:#1f2937;
+  --header:#e5e7eb;
+  --tableHead:#111827;
+  --shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+.dark-mode button{
+  background: #111827;
+  color: #e5e7eb;
+}
+.dark-mode table{ background: var(--card); }
+.dark-mode thead th{ color:#e5e7eb; }
+.dark-mode tbody td{ color:#e5e7eb; }
+.dark-mode .col-notes{ color:#cbd5e1; }
+.dark-mode .kv .item{ background:#0b1220; }
+.dark-mode .note{ background:#0b1220; }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <a href="doc.html">Overview</a>
+  <a href="index.html">Homepage</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="schedule.html">Schedule</a>
+</div>
+
+<div class="container">
+
+  <div class="page-title">
+    <h1>Onsite Experiments</h1>
+    <p class="subtitle">Task definitions, data specification, and sensor setup for offline evaluation</p>
+  </div>
+
+  <div class="tools">
+    <button onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+
+  <!-- 1) Task Definition -->
+  <section class="card">
+    <h2>1. Task Definition</h2>
+    <p>
+      The onsite experiments consist of three tasks derived from a planetary-gear assembly workflow. Tasks are designed to evaluate
+      manipulation accuracy, partial-progress continuation, and error recovery under realistic deployment conditions.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="Task Definition Table">
+        <thead>
+          <tr>
+            <th class="col-task">Task</th>
+            <th class="col-def">Goal</th>
+            <th class="col-notes">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-task">Task 1</td>
+            <td class="col-def">Install three planetary gears onto the carrier pins</td>
+            <td class="col-notes">
+              Each planetary gear must be picked and mounted onto the correct carrier pin with correct placement and stability.
+            </td>
+          </tr>
+          <tr>
+            <td class="col-task">Task 2</td>
+            <td class="col-def">Continue from partial progress of Task 1 (two gears already installed)</td>
+            <td class="col-notes">
+              Task 2 is not provided as an independent dataset. It reuses Task 1 data format, but starts from an intermediate state where
+              two gears are already assembled and the policy must install the remaining gear.
+            </td>
+          </tr>
+          <tr>
+            <td class="col-task">Task 3</td>
+            <td class="col-def">Error detection and recovery: remove an incorrectly installed larger gear and replace it with the correct smaller gear</td>
+            <td class="col-notes">
+              Task 3 targets recovery behavior: the robot must identify the wrong assembly, remove the incorrect part, and complete the correct replacement.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Data availability:</strong> Task 2 does not have a standalone data split; it is evaluated as a continuation scenario based on Task 1.
+    </div>
+  </section>
+
+  <!-- 2) Data Content -->
+  <section class="card">
+    <h2>2. Data Content</h2>
+    <p>
+      Each trajectory provides synchronized multi-modal observations and actions for a dual-arm mobile-manipulation platform.
+      The dataset includes robot state/action streams, end-effector feedback, and multi-camera visual observations.
+    </p>
+
+    <div class="kv">
+      <div class="item"><strong>Embodiment:</strong> Galaxea R1 Lite</div>
+      <div class="item"><strong>Arms:</strong> Dual-arm with grippers</div>
+      <div class="item"><strong>Action:</strong> Dual-arm + gripper action commands</div>
+      <div class="item"><strong>Obs:</strong> Dual-arm + gripper states</div>
+      <div class="item"><strong>EE feedback:</strong> End-effector pose feedback (per arm)</div>
+    </div>
+
+    <div class="note">
+      <strong>Implementation note:</strong> “Obs” and “Action” refer to the logged control/state interfaces for both arms and grippers.
+      EE feedback is provided as a pose stream to facilitate control/learning with kinematic supervision.
+    </div>
+  </section>
+
+  <!-- 3) Image Information -->
+  <section class="card">
+    <h2>3. Visual Streams</h2>
+    <p>
+      Visual observations are recorded from head and wrist cameras. The head provides stereo RGB streams (left/right),
+      and each wrist provides RGB plus a depth stream.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="Visual Streams Table">
+        <thead>
+          <tr>
+            <th style="width:220px;">Camera</th>
+            <th style="width:160px;">Modality</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Head (Stereo Left)</strong></td>
+            <td>RGB</td>
+            <td>Left head camera RGB stream.</td>
+          </tr>
+          <tr>
+            <td><strong>Head (Stereo Right)</strong></td>
+            <td>RGB</td>
+            <td>Right head camera RGB stream.</td>
+          </tr>
+          <tr>
+            <td><strong>Wrist (Left)</strong></td>
+            <td>RGB + Depth</td>
+            <td>Left wrist camera provides RGB and depth observations.</td>
+          </tr>
+          <tr>
+            <td><strong>Wrist (Right)</strong></td>
+            <td>RGB + Depth</td>
+            <td>Right wrist camera provides RGB and depth observations.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4) Depth Reconstruction Note -->
+  <section class="card">
+    <h2>4. Head Depth Reconstruction (Stereo)</h2>
+    <p>
+      The head cameras do not provide native depth. If depth is required, it must be reconstructed from the stereo RGB pair
+      using camera intrinsics/extrinsics.
+    </p>
+
+    <div class="note">
+      <strong>Calibration file:</strong> <code>stereo.yaml</code><br/>
+      Use this file to obtain intrinsics/extrinsics for stereo rectification and disparity-based depth reconstruction.
+    </div>
+  </section>
+
+  <!-- 5) Reference Video -->
+  <section class="card">
+    <h2>5. Reference Video (Onsite Scene & Data Collection Process)</h2>
+
+    <div class="video-wrap">
+      <!-- Example (replace with your official onsite video when available) -->
+      <iframe
+        src="https://www.youtube.com/embed/EgkXbLPCMT8?si=QdIVaNHxQPBXlXsC"
+        title="Reference Video: R1 Lite Platform Demo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </section>
+
+  <div class="footer">
+    © RoCo Challenge. Experimental specification subject to update by the organizing committee.
+  </div>
+
+</div>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+}
+</script>
+
+</body>
+</html>
