@@ -230,6 +230,57 @@ button{
     <button id="toggleThemeBtn" onclick="toggleTheme()">Toggle Dark Mode</button>
   </div>
 
+  <!-- ================== IMPORTANT NOTICE (PLACE AT TOP) ================== -->
+<section class="day-card" style="border:2px solid var(--accent);">
+  <div class="day-head">
+    <div class="day-badge">
+      <span class="badge" style="background:#dc2626;">IMPORTANT</span>
+      <h2 class="day-title">Onsite Logistics & Deployment</h2>
+    </div>
+    <p class="day-date"><strong>Read Before Onsite Evaluation</strong></p>
+  </div>
+
+  <div class="note" style="border-left:4px solid #dc2626; background:#fff5f5; color:#111827;">
+    <strong>Critical Notice:</strong>
+    Due to <strong>potential network instability or limited internet access</strong> at the onsite venue,
+    <strong>all teams must be fully prepared for offline execution</strong>.
+    Failure to comply may result in <strong>inability to run evaluations</strong>.
+  </div>
+
+  <div class="table-wrap" style="margin-top:12px;">
+    <table aria-label="Onsite Logistics (Mandatory)">
+      <thead>
+        <tr>
+          <th class="col-time">Item</th>
+          <th class="col-activity">Requirement</th>
+          <th class="col-duration">Scope</th>
+          <th class="col-desc">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-time">Network constraints</td>
+          <td class="col-activity"><strong>Offline-ready deployment</strong></td>
+          <td class="col-duration">All teams</td>
+          <td class="col-desc">
+            Teams must bring their own storage device(s)
+            (<strong>portable SSD / USB drive</strong>) and copy
+            <strong>all source code</strong>, <strong>model checkpoints</strong>,
+            and <strong>environment dependencies</strong>
+            to the onsite workstation <strong>before evaluation starts</strong>.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <div class="note">
+      <strong>Recommendation:</strong> Bring redundant copies of critical files and verify that the offline environment can run end-to-end
+      on the onsite workstation prior to the recorded trials.
+    </div>
+</section>
+<!-- ================== END IMPORTANT NOTICE ================== -->
+
   <!-- Section: Task Description -->
   <section class="day-card">
     <div class="day-head">
@@ -303,13 +354,13 @@ button{
         </thead>
         <tbody>
           <tr>
-            <td class="col-time">Pick success (Task 1/2)</td>
+            <td class="col-time">Pick success (Task 1&2)</td>
             <td class="col-activity">Grasp & lift a target gear</td>
             <td class="col-duration">1</td>
             <td class="col-desc">The gripper grasps the gear and lifts it off the table (detached from support).</td>
           </tr>
           <tr>
-            <td class="col-time">Place success (Task 1/2)</td>
+            <td class="col-time">Place success (Task 1&2)</td>
             <td class="col-activity">Place gear onto intended pin</td>
             <td class="col-duration">2</td>
             <td class="col-desc">Correct placement onto the target pin meeting the required pose/fit.</td>
@@ -408,46 +459,46 @@ button{
     </div>
   </section>
 
-  <!-- Section: Logistics -->
-  <section class="day-card">
-    <div class="day-head">
-      <div class="day-badge">
-        <span class="badge">Section 4</span>
-        <h2 class="day-title">Onsite Logistics</h2>
-      </div>
-      <p class="day-date">Deployment & Storage</p>
-    </div>
+<!--  &lt;!&ndash; Section: Logistics &ndash;&gt;-->
+<!--  <section class="day-card">-->
+<!--    <div class="day-head">-->
+<!--      <div class="day-badge">-->
+<!--        <span class="badge">Section 4</span>-->
+<!--        <h2 class="day-title">Onsite Logistics</h2>-->
+<!--      </div>-->
+<!--      <p class="day-date">Deployment & Storage</p>-->
+<!--    </div>-->
 
-    <div class="table-wrap">
-      <table aria-label="Onsite Logistics">
-        <thead>
-          <tr>
-            <th class="col-time">Item</th>
-            <th class="col-activity">Requirement</th>
-            <th class="col-duration">Scope</th>
-            <th class="col-desc">Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="col-time">Network constraints</td>
-            <td class="col-activity">Offline-ready deployment</td>
-            <td class="col-duration">All teams</td>
-            <td class="col-desc">
-              Due to potential network limitations onsite, teams must prepare their own storage device(s) (e.g., portable SSD / USB drive)
-              and copy all <strong>code</strong>, <strong>checkpoints</strong>, and <strong>environment dependencies</strong>
-              onto the onsite workstation before evaluation.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<!--    <div class="table-wrap">-->
+<!--      <table aria-label="Onsite Logistics">-->
+<!--        <thead>-->
+<!--          <tr>-->
+<!--            <th class="col-time">Item</th>-->
+<!--            <th class="col-activity">Requirement</th>-->
+<!--            <th class="col-duration">Scope</th>-->
+<!--            <th class="col-desc">Details</th>-->
+<!--          </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--          <tr>-->
+<!--            <td class="col-time">Network constraints</td>-->
+<!--            <td class="col-activity">Offline-ready deployment</td>-->
+<!--            <td class="col-duration">All teams</td>-->
+<!--            <td class="col-desc">-->
+<!--              Due to potential network limitations onsite, teams must prepare their own storage device(s) (e.g., portable SSD / USB drive)-->
+<!--              and copy all <strong>code</strong>, <strong>checkpoints</strong>, and <strong>environment dependencies</strong>-->
+<!--              onto the onsite workstation before evaluation.-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
 
-    <div class="note">
-      <strong>Recommendation:</strong> Bring redundant copies of critical files and verify that the offline environment can run end-to-end
-      on the onsite workstation prior to the recorded trials.
-    </div>
-  </section>
+<!--    <div class="note">-->
+<!--      <strong>Recommendation:</strong> Bring redundant copies of critical files and verify that the offline environment can run end-to-end-->
+<!--      on the onsite workstation prior to the recorded trials.-->
+<!--    </div>-->
+<!--  </section>-->
 
   <div class="footer">
     © RoCo Challenge. Onsite evaluation details are subject to change by the organizing committee.
