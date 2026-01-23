@@ -1,0 +1,50 @@
+[
+  {
+  "Team": "Real2RealGap",
+  "Institution": "Singapore Institute of Technology",
+  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
+  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "FinalScore": 0
+},
+  {
+  "Team": "K-Lee-gends",
+  "Institution": "GIST",
+  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
+  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "FinalScore": 0
+},
+  {
+  "Team": "IIGroup",
+  "Institution": "Tsinghua University",
+  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
+  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "FinalScore": 0
+},
+    {
+  "Team": "RoboCola",
+  "Institution": "Beihang University",
+  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
+  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "FinalScore": 0
+},
+    {
+  "Team": "HD-Robo",
+  "Institution": "HiDream.ai",
+  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
+  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "FinalScore": 0
+},
+    {
+  "Team": "Show Me Robot",
+  "Institution": "NUS",
+  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
+  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "FinalScore": 0
+}
+]
