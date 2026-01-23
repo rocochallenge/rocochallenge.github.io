@@ -1,6 +1,7 @@
 # EFMNode
 
-EFMNode is a robot control node that integrates vision-language models (VLM) with robot action inference for real-time robot control via ROS2.
+EFMNode is the reference robot control node we use for the Roco Challenge 2026. It
+integrates vision-language models (VLM) with robot action inference for real-time robot control via ROS2.
 It provides a modular framework combining:
 
 - ROS2 communication (subscribers/publishers)
@@ -11,21 +12,11 @@ It provides a modular framework combining:
 
 ---
 
-## Table of Contents
-- [Environment Setup](#environment-setup)
-- [Model Weights and Configuration](#model-weights-and-configuration)
-- [Running and 
-####Data Recording](#running-and-data-recording)
-- [Troubleshooting](#troubleshooting)
-
----
-
 ## Environment Setup
 
 ### Prerequisites
 
 - ROS2 Humble
-
 
 ### Installation Steps
 
@@ -48,25 +39,20 @@ cd ..
 
 
 ### Running 
-### Ensure ROS2 is sourced
+    # Ensure ROS2 is sourced
     source /opt/ros/humble/setup.bash
-
-
 
 # How the Node Works (Architecture Overview)
 
-EFMNNode is structured around the following modules (from your uploaded code):
+EFMNNode is structured around the following modules (from your uploaded code), please refer to these codes for your usage or own code construction:
 
 ### core/communication/robot_topics.py
     Centralized configuration for all state / image / action topics
-    Defines QoS profiles
+    Defines QoS prof
     Configures deque buffer lengths
     Maps topic types → R1 Lite ROS message types
 
-
-
-### (core/communication/ros2_bridge.py)
-### Responsible for:
+### core/communication/ros2_bridge.py
     Subscribing to all sensors (RGB images, joint states, EE poses)
     Publishing all robot actions
     Timestamp alignment & nearest-message search
@@ -74,9 +60,8 @@ EFMNNode is structured around the following modules (from your uploaded code):
 
 
 
-### (core/inference/inference_engine.py)
-### only for galaxea G0 model inference
-### Defines a clean interface:
+### core/inference/inference_engine.py (only for galaxea G0 model inference)
+    Defines a clean interface:
     load_model()
     predict_action(batch)
     Device management (cuda/cpu)
@@ -85,18 +70,17 @@ EFMNNode is structured around the following modules (from your uploaded code):
 
 
 
-### (scheduler/scheduler.py)
-### only for galaxea G0 model inference
-### This is the brain of your system.
-### Main responsibilities:
+### scheduler/scheduler.py (only for galaxea G0 model inference)
+    Main responsibilities:
     Gather observations from Ros2Bridge
     Apply processor preprocessing
     Run inference model
     Map model predictions to robot topics
     Generate trajectories
     Publish actions at control_frequency
+
 ### Pseudo-flow:
-### while ros2 ok:
+    # while ros2 ok:
     obs = ros2_bridge.gather_obs()
     instruction = instruction_manager()
     batch = processor.preprocess(obs)
@@ -107,6 +91,12 @@ EFMNNode is structured around the following modules (from your uploaded code):
     python /home/pine/galaxeavla_finetune_assembly/EFMNode/scripts/reset.py
     
     
+# On-site Notifications
 
+## File and environment management
 
+All teams should only store their codes and checkpoints under the **~/roco/[teamname]** , and any changes outside this directory should ask for organizer's assistance.
 
+If conda is used, all teams should only create and edit their own conda environments named **roco_[teamname]_[serial]**. Any edit to base and other teams' environment is not allowed. Any installation to system or ros2 python should ask for organizer's assistance.
+
+Any edit to system variables and paths are not allowed, and adding new varialbes should ask for organizer's assistance.
