@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoCo Onsite Leaderboard</title>
+
+<style>
+/* ===== Base ===== */
+:root{
+  --bg:#ffffff;
+  --fg:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --header:#0f172a;
+  --accent:#5865F2;
+  --tableHead:#f3f4f6;
+  --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.dark-mode{
+  --bg:#0b1220;
+  --fg:#e5e7eb;
+  --muted:#9ca3af;
+  --card:#0f172a;
+  --border:#1f2937;
+  --header:#e5e7eb;
+  --tableHead:#111827;
+  --shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* ===== Navbar (kept minimal) ===== */
+.navbar{
+  background:#222;
+  padding:12px 20px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  justify-content:space-between;
+}
+.navbar .left{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+}
+.navbar a:hover{ text-decoration: underline; }
+.navbar .brand{
+  color:#fff;
+  font-weight:700;
+  letter-spacing:0.3px;
+}
+.navbar button{
+  padding:7px 10px;
+  cursor:pointer;
+  border:1px solid #555;
+  background:#2b2b2b;
+  color:#fff;
+  border-radius:10px;
+  font-size:13px;
+}
+.dark-mode .navbar button{
+  background:#111827;
+  border-color:#374151;
+}
+
+/* ===== Layout ===== */
+.container{
+  margin: 20px auto;
+  width: 95%;
+  max-width: 1400px;
+}
+
+.header{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:10px;
+  margin: 12px 0 14px;
+}
+.header h1{
+  margin:0;
+  font-size: 26px;
+  color: var(--header);
+}
+.header .sub{
+  margin:0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== Top Stats Bar ===== */
+.stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin: 0 0 12px;
+}
+.stat{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 10px 12px;
+  min-width: 160px;
+}
+.stat .k{
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.stat .v{
+  color: var(--header);
+  font-weight: 800;
+  font-size: 18px;
+}
+.dark-mode .stat .v{ color: var(--fg); }
+
+/* ===== Table Card ===== */
+.table-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 1120px;
+  background: transparent;
+}
+
+thead th{
+  background: var(--tableHead);
+  color: var(--header);
+  font-weight: 800;
+  font-size: 13px;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+tbody td{
+  padding: 12px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  color: var(--fg);
+}
+
+tbody tr:hover{
+  background: rgba(88, 101, 242, 0.06);
+}
+
+.rank{
+  font-weight: 900;
+  color: var(--header);
+}
+.dark-mode .rank{ color: var(--fg); }
+
+.team{
+  font-weight: 800;
+  color: var(--header);
+  text-align: left;
+  white-space: nowrap;
+}
+.dark-mode .team{ color: var(--fg); }
+
+.meta{
+  text-align: left;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+th.col-team, td.team {
+  text-align: center !important;
+}
+
+th.col-inst, td.meta {
+  text-align: center !important;
+}
+
+.group-head{
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  background: var(--accent);
+  color:#fff;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 12px;
+}
+
+.gold{ color:#DAA520; font-weight: 900; }
+.silver{ color:#C0C0C0; font-weight: 900; }
+.bronze{ color:#CD7F32; font-weight: 900; }
+
+.footer-note{
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* Column sizing */
+.col-rank{ width: 80px; }
+.col-team{ width: 220px; }
+.col-inst{ width: 260px; }
+.col-score{ width: 120px; }
+.col-small{ width: 80px; }
+</style>
+</head>
+
+<body>
+
+<!-- Minimal Navbar (no search/sort) -->
+<div class="navbar">
+  <div class="left">
+    <div class="brand">RoCo Onsite Leaderboard</div>
+    <a href="doc.html">Overview</a>
+    <a href="index.html">Homepage</a>
+  </div>
+  <button onclick="toggleDarkMode()">Dark / Light</button>
+</div>
+
+<div class="container">
+
+  <div class="header">
+    <div>
+      <h1>Live Results</h1>
+      <p class="sub">Sorted by <strong>Final Score</strong> (descending).</p>
+    </div>
+  </div>
+
+  <!-- Quick stats (optional but helps “live” feel) -->
+  <div class="stats">
+    <div class="stat">
+      <div class="k">Teams</div>
+      <div class="v" id="statTeams">–</div>
+    </div>
+    <div class="stat">
+      <div class="k">Last Update (Local)</div>
+      <div class="v" id="statUpdate">–</div>
+    </div>
+    <div class="stat">
+      <div class="k">Leading Team</div>
+      <div class="v" id="statLeader">–</div>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-wrap">
+      <table aria-label="RoCo Onsite Leaderboard">
+        <thead>
+          <tr>
+            <th class="col-rank" rowspan="2">Ranking</th>
+            <th class="col-team" rowspan="2">Team Name</th>
+            <th class="col-inst" rowspan="2">Institution</th>
+
+            <th class="group-head" colspan="4">Task 1</th>
+            <th class="group-head" colspan="4">Task 2</th>
+            <th class="group-head" colspan="4">Task 3</th>
+
+            <th class="col-score" rowspan="2">Final Score</th>
+          </tr>
+          <tr>
+            <th class="col-small">Pick</th>
+            <th class="col-small">Place</th>
+            <th class="col-small">Total</th>
+            <th class="col-small">S1</th>
+
+            <th class="col-small">Pick</th>
+            <th class="col-small">Place</th>
+            <th class="col-small">Total</th>
+            <th class="col-small">S2</th>
+
+            <th class="col-small">Pick</th>
+            <th class="col-small">Place</th>
+            <th class="col-small">Total</th>
+            <th class="col-small">S3</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="footer-note">
+      Note: The onsite leaderboard is for real-time display. Official results are subject to verification by the organizing committee.
+    </div>
+  </div>
+
+</div>
+
+<script>
+/*
+Expected JSON schema per team entry (minimum):
+{
+  "Team": "Team A",
+  "Members": "Alice; Bob; Carol",
+  "Institution": "University / Company",
+  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
+  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "FinalScore": 0
+}
+*/
+
+let data = [];
+
+/* Load JSON and render */
+async function loadAndRender() {
+  try {
+    const r = await fetch("./docs/onsite_results.json", { cache: "no-store" });
+    const json = await r.json();
+    data = Array.isArray(json) ? json : [];
+    renderTable();
+    updateStats();
+  } catch (e) {
+    console.error("Failed to load results.json:", e);
+    document.getElementById("tbody").innerHTML = `
+      <tr>
+        <td colspan="17" style="text-align:left; padding:14px;">
+          Unable to load <code>./docs/results.json</code>. Please confirm the file path and JSON format.
+        </td>
+      </tr>
+    `;
+  }
+}
+
+/* Render table sorted by FinalScore desc */
+function renderTable() {
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = "";
+
+  const sorted = [...data].sort((a, b) => (b.FinalScore ?? 0) - (a.FinalScore ?? 0));
+
+  sorted.forEach((t, idx) => {
+    const rank = idx + 1;
+
+    let rankDisplay = `<span class="rank">${rank}</span>`;
+    if (rank === 1) rankDisplay = `<span class="gold">🥇 1</span>`;
+    else if (rank === 2) rankDisplay = `<span class="silver">🥈 2</span>`;
+    else if (rank === 3) rankDisplay = `<span class="bronze">🥉 3</span>`;
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${rankDisplay}</td>
+      <td class="team">${safe(t.Team)}</td>
+      <td class="meta">${safe(t.Institution)}</td>
+
+      <td>${num(t.T1_Pick)}</td>
+      <td>${num(t.T1_Place)}</td>
+      <td>${num(t.T1_Total)}</td>
+      <td><span class="badge">${num(t.S1)}</span></td>
+
+      <td>${num(t.T2_Pick)}</td>
+      <td>${num(t.T2_Place)}</td>
+      <td>${num(t.T2_Total)}</td>
+      <td><span class="badge">${num(t.S2)}</span></td>
+
+      <td>${num(t.T3_Pick)}</td>
+      <td>${num(t.T3_Place)}</td>
+      <td>${num(t.T3_Total)}</td>
+      <td><span class="badge">${num(t.S3)}</span></td>
+
+      <td><strong>${num(t.FinalScore)}</strong></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+/* Top stats */
+function updateStats() {
+  const teams = data.length;
+  document.getElementById("statTeams").textContent = teams ? String(teams) : "–";
+
+  const now = new Date();
+  document.getElementById("statUpdate").textContent = now.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit", second:"2-digit"});
+
+  const leader = [...data].sort((a,b)=> (b.FinalScore ?? 0) - (a.FinalScore ?? 0))[0];
+  document.getElementById("statLeader").textContent = leader?.Team ? leader.Team : "–";
+}
+
+/* Helpers */
+function num(v) {
+  if (v === null || v === undefined || v === "") return "–";
+  // keep up to 3 decimals if needed
+  if (typeof v === "number") return (Number.isInteger(v) ? String(v) : String(Math.round(v * 1000) / 1000));
+  const n = Number(v);
+  if (!Number.isNaN(n)) return (Number.isInteger(n) ? String(n) : String(Math.round(n * 1000) / 1000));
+  return safe(v);
+}
+
+function safe(s) {
+  if (s === null || s === undefined) return "–";
+  return String(s)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;");
+}
+
+/* Dark mode */
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
+/* Auto-refresh for “live” display (every 10 seconds) */
+loadAndRender();
+setInterval(loadAndRender, 10000);
+</script>
+
+</body>
+</html>
