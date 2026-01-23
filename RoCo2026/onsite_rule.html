@@ -459,46 +459,77 @@ button{
     </div>
   </section>
 
-<!--  &lt;!&ndash; Section: Logistics &ndash;&gt;-->
-<!--  <section class="day-card">-->
-<!--    <div class="day-head">-->
-<!--      <div class="day-badge">-->
-<!--        <span class="badge">Section 4</span>-->
-<!--        <h2 class="day-title">Onsite Logistics</h2>-->
-<!--      </div>-->
-<!--      <p class="day-date">Deployment & Storage</p>-->
-<!--    </div>-->
+    <!-- Section: On-site Notifications -->
+  <section class="day-card">
+    <div class="day-head">
+      <div class="day-badge">
+        <span class="badge">On-site</span>
+        <h2 class="day-title">On-site Notifications</h2>
+      </div>
+      <p class="day-date">File & Environment Management</p>
+    </div>
 
-<!--    <div class="table-wrap">-->
-<!--      <table aria-label="Onsite Logistics">-->
-<!--        <thead>-->
-<!--          <tr>-->
-<!--            <th class="col-time">Item</th>-->
-<!--            <th class="col-activity">Requirement</th>-->
-<!--            <th class="col-duration">Scope</th>-->
-<!--            <th class="col-desc">Details</th>-->
-<!--          </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--          <tr>-->
-<!--            <td class="col-time">Network constraints</td>-->
-<!--            <td class="col-activity">Offline-ready deployment</td>-->
-<!--            <td class="col-duration">All teams</td>-->
-<!--            <td class="col-desc">-->
-<!--              Due to potential network limitations onsite, teams must prepare their own storage device(s) (e.g., portable SSD / USB drive)-->
-<!--              and copy all <strong>code</strong>, <strong>checkpoints</strong>, and <strong>environment dependencies</strong>-->
-<!--              onto the onsite workstation before evaluation.-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
+    <div class="note">
+      <strong>Scope:</strong> The following policies apply to all onsite machines and are enforced to ensure fairness and system stability.
+    </div>
 
-<!--    <div class="note">-->
-<!--      <strong>Recommendation:</strong> Bring redundant copies of critical files and verify that the offline environment can run end-to-end-->
-<!--      on the onsite workstation prior to the recorded trials.-->
-<!--    </div>-->
-<!--  </section>-->
+    <div class="table-wrap">
+      <table aria-label="On-site Notifications: File and Environment Management">
+        <thead>
+          <tr>
+            <th class="col-time">Item</th>
+            <th class="col-activity">Requirement</th>
+            <th class="col-duration">Constraint</th>
+            <th class="col-desc">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-time">Code & checkpoints</td>
+            <td class="col-activity"><strong>Use team directory only</strong></td>
+            <td class="col-duration">All teams</td>
+            <td class="col-desc">
+              All teams should store code and checkpoints only under
+              <strong>~/roco/[teamname]</strong>.
+              Any changes outside this directory must be performed with organizer assistance.
+            </td>
+          </tr>
+          <tr>
+            <td class="col-time">Conda environments</td>
+            <td class="col-activity"><strong>Team-scoped env naming</strong></td>
+            <td class="col-duration">If using conda</td>
+            <td class="col-desc">
+              Teams should only create and modify their own conda environments named
+              <strong>roco_[teamname]_[serial]</strong>.
+              Modifying <strong>base</strong> or other teams’ environments is not allowed.
+            </td>
+          </tr>
+          <tr>
+            <td class="col-time">System-level installs</td>
+            <td class="col-activity"><strong>Organizer approval required</strong></td>
+            <td class="col-duration">All teams</td>
+            <td class="col-desc">
+              Any installation to the system environment or ROS2 Python packages must be requested through the organizers.
+            </td>
+          </tr>
+          <tr>
+            <td class="col-time">System variables & paths</td>
+            <td class="col-activity"><strong>No direct edits</strong></td>
+            <td class="col-duration">All teams</td>
+            <td class="col-desc">
+              Editing existing system variables and paths is not allowed.
+              Adding new environment variables requires organizer assistance.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Reminder:</strong> Please plan your deployment to be self-contained within your team directory and conda environment,
+      and contact the organizers early if special system permissions are needed.
+    </div>
+  </section>
 
   <div class="footer">
     © RoCo Challenge. Onsite evaluation details are subject to change by the organizing committee.
