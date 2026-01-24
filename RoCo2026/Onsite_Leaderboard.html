@@ -286,6 +286,7 @@ th.col-inst, td.meta {
             <th class="group-head" colspan="4">Task 2</th>
             <th class="group-head" colspan="6">Task 3</th>
 
+            <th class="col-score" rowspan="2">Online Score</th>
             <th class="col-score" rowspan="2">Final Score</th>
           </tr>
           <tr>
@@ -347,7 +348,7 @@ async function loadAndRender() {
     console.error("Failed to load results.json:", e);
     document.getElementById("tbody").innerHTML = `
       <tr>
-        <td colspan="17" style="text-align:left; padding:14px;">
+        <td colspan="19" style="text-align:left; padding:14px;">
           Unable to load <code>./docs/results.json</code>. Please confirm the file path and JSON format.
         </td>
       </tr>
@@ -360,7 +361,15 @@ function renderTable() {
   const tbody = document.getElementById("tbody");
   tbody.innerHTML = "";
 
-  const sorted = [...data].sort((a, b) => (b.FinalScore ?? 0) - (a.FinalScore ?? 0));
+  const sorted = [...data].sort((a, b) => {
+  const fa = (a.FinalScore ?? 0);
+  const fb = (b.FinalScore ?? 0);
+  if (fb !== fa) return fb - fa;  // FinalScore desc
+
+  const oa = (a.OnlineScore ?? 0);
+  const ob = (b.OnlineScore ?? 0);
+  return ob - oa;                 // OnlineScore desc as tie-breaker
+});
 
   sorted.forEach((t, idx) => {
     const rank = idx + 1;
@@ -393,6 +402,7 @@ function renderTable() {
       <td>${num(t.T3_Total)}</td>
       <td><span class="badge">${num(t.S3)}</span></td>
 
+      <td><strong>${num(t.OnlineScore)}</strong></td>
       <td><strong>${num(t.FinalScore)}</strong></td>
     `;
     tbody.appendChild(tr);
@@ -407,7 +417,12 @@ function updateStats() {
   const now = new Date();
   document.getElementById("statUpdate").textContent = now.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit", second:"2-digit"});
 
-  const leader = [...data].sort((a,b)=> (b.FinalScore ?? 0) - (a.FinalScore ?? 0))[0];
+  const leader = [...data].sort((a, b) => {
+  const fa = (a.FinalScore ?? 0);
+  const fb = (b.FinalScore ?? 0);
+  if (fb !== fa) return fb - fa;
+  return (b.OnlineScore ?? 0) - (a.OnlineScore ?? 0);
+})[0];
   document.getElementById("statLeader").textContent = leader?.Team ? leader.Team : "–";
 }
 
