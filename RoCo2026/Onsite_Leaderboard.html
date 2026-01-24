@@ -284,7 +284,7 @@ th.col-inst, td.meta {
 
             <th class="group-head" colspan="4">Task 1</th>
             <th class="group-head" colspan="4">Task 2</th>
-            <th class="group-head" colspan="4">Task 3</th>
+            <th class="group-head" colspan="6">Task 3</th>
 
             <th class="col-score" rowspan="2">Final Score</th>
           </tr>
@@ -299,8 +299,10 @@ th.col-inst, td.meta {
             <th class="col-small">Total</th>
             <th class="col-small">S2</th>
 
-            <th class="col-small">Pick</th>
-            <th class="col-small">Place</th>
+            <th class="col-small">Pick error</th>
+            <th class="col-small">Place error</th>
+            <th class="col-small">Pick right</th>
+            <th class="col-small">Place right</th>
             <th class="col-small">Total</th>
             <th class="col-small">S3</th>
           </tr>
@@ -384,8 +386,10 @@ function renderTable() {
       <td>${num(t.T2_Total)}</td>
       <td><span class="badge">${num(t.S2)}</span></td>
 
-      <td>${num(t.T3_Pick)}</td>
-      <td>${num(t.T3_Place)}</td>
+      <td>${num(t.T3_PickError)}</td>
+      <td>${num(t.T3_PlaceError)}</td>
+      <td>${num(t.T3_PickRight)}</td>
+      <td>${num(t.T3_PlaceRight)}</td>
       <td>${num(t.T3_Total)}</td>
       <td><span class="badge">${num(t.S3)}</span></td>
 
