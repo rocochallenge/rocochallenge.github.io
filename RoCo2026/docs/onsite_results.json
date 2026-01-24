@@ -9,7 +9,8 @@
   "T3_PlaceRight": 0,
   "T3_Total": 0,
   "S3": 0,
-  "FinalScore": 0
+  "FinalScore": 0,
+    "OnlineScore": 0.040
 },
   {
   "Team": "K-Lee-gends",
@@ -22,7 +23,8 @@
   "T3_PlaceRight": 0,
   "T3_Total": 0,
   "S3": 0,
-  "FinalScore": 0
+  "FinalScore": 0,
+    "OnlineScore": 0.184
 },
   {
   "Team": "IIGroup",
@@ -35,7 +37,8 @@
   "T3_PlaceRight": 0,
   "T3_Total": 0,
   "S3": 0,
-  "FinalScore": 0
+  "FinalScore": 0,
+    "OnlineScore": 0.126
 },
     {
   "Team": "RoboCola",
@@ -48,7 +51,8 @@
   "T3_PlaceRight": 0,
   "T3_Total": 0,
   "S3": 0,
-  "FinalScore": 0
+  "FinalScore": 0,
+      "OnlineScore": 0.038
 },
     {
   "Team": "HD-Robo",
@@ -61,7 +65,8 @@
   "T3_PlaceRight": 0,
   "T3_Total": 0,
   "S3": 0,
-  "FinalScore": 0
+  "FinalScore": 0,
+      "OnlineScore": 0.256
 },
     {
   "Team": "Show Me Robot",
@@ -74,6 +79,7 @@
   "T3_PlaceRight": 0,
   "T3_Total": 0,
   "S3": 0,
-  "FinalScore": 0
+  "FinalScore": 0,
+      "OnlineScore": 0.037
 }
 ]
