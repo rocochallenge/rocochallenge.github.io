@@ -3,8 +3,12 @@
   "Team": "Real2RealGap",
   "Institution": "Singapore Institute of Technology",
   "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
-  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
-  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0, "T3_PickError": 0,
+  "T3_PlaceError": 0,
+  "T3_PickRight": 0,
+  "T3_PlaceRight": 0,
+  "T3_Total": 0,
+  "S3": 0,
   "FinalScore": 0
 },
   {
@@ -12,7 +16,12 @@
   "Institution": "GIST",
   "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
   "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
-  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+      "T3_PickError": 0,
+  "T3_PlaceError": 0,
+  "T3_PickRight": 0,
+  "T3_PlaceRight": 0,
+  "T3_Total": 0,
+  "S3": 0,
   "FinalScore": 0
 },
   {
@@ -20,7 +29,12 @@
   "Institution": "Tsinghua University",
   "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
   "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
-  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+    "T3_PickError": 0,
+  "T3_PlaceError": 0,
+  "T3_PickRight": 0,
+  "T3_PlaceRight": 0,
+  "T3_Total": 0,
+  "S3": 0,
   "FinalScore": 0
 },
     {
@@ -28,7 +42,12 @@
   "Institution": "Beihang University",
   "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
   "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
-  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+    "T3_PickError": 0,
+  "T3_PlaceError": 0,
+  "T3_PickRight": 0,
+  "T3_PlaceRight": 0,
+  "T3_Total": 0,
+  "S3": 0,
   "FinalScore": 0
 },
     {
@@ -36,7 +55,12 @@
   "Institution": "HiDream.ai",
   "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
   "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
-  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+    "T3_PickError": 0,
+  "T3_PlaceError": 0,
+  "T3_PickRight": 0,
+  "T3_PlaceRight": 0,
+  "T3_Total": 0,
+  "S3": 0,
   "FinalScore": 0
 },
     {
@@ -44,7 +68,12 @@
   "Institution": "NUS",
   "T1_Pick": 0, "T1_Place": 0, "T1_Total": 0, "S1": 0,
   "T2_Pick": 0, "T2_Place": 0, "T2_Total": 0, "S2": 0,
-  "T3_Pick": 0, "T3_Place": 0, "T3_Total": 0, "S3": 0,
+    "T3_PickError": 0,
+  "T3_PlaceError": 0,
+  "T3_PickRight": 0,
+  "T3_PlaceRight": 0,
+  "T3_Total": 0,
+  "S3": 0,
   "FinalScore": 0
 }
 ]
