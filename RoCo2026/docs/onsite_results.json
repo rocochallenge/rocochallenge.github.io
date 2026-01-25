@@ -71,15 +71,15 @@
     {
   "Team": "Show Me Robot",
   "Institution": "NUS",
-  "T1_Pick": 0, "T1_Place": 0, "T1_Total": 36, "S1": 0,
-  "T2_Pick": 0, "T2_Place": 0, "T2_Total": 12, "S2": 0,
-    "T3_PickError": 0,
-  "T3_PlaceError": 0,
-  "T3_PickRight": 0,
+  "T1_Pick": 2, "T1_Place": 0, "T1_Total": 36, "S1": 0.056,
+  "T2_Pick": 2, "T2_Place": 0, "T2_Total": 12, "S2": 0.167,
+    "T3_PickError": 1,
+  "T3_PlaceError": 1,
+  "T3_PickRight": 1,
   "T3_PlaceRight": 0,
   "T3_Total": 24,
-  "S3": 0,
-  "FinalScore": 0,
+  "S3": 0.167,
+  "FinalScore": 0.097,
       "OnlineScore": 0.037
 }
 ]
