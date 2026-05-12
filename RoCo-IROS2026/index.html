@@ -77,29 +77,30 @@
 
 
 
-
-
-
-
-
-
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
 <!-- ===== 新导航栏 ===== -->
 <header class="custom-header">
   <nav class="nav-bar">
     <div class="logo"><strong>2nd RoCo Challenge @ IROS 2026</strong></div>
-    <!-- <ul class="nav-links"> -->
-<!--      <li><a href="#">Home</a></li>-->
-<!--      <li><a href="#">🏆 2026 RoCo</a></li>-->
-      <!-- <li><a href="doc.html">Documentation</a></li> -->
-      <!-- <li><a href="agenda.html">Agenda</a></li> -->
-      <!-- <li><a href="onsite.html">Onsite</a></li> -->
-      <!-- <li><a href="onsite_rule.html">Onsite Rule</a></li> -->
-<!--      <li><a href="#">BEHAVIOR-100</a></li>-->
-<!--      <li><a href="#">Support</a></li>-->
-      <!-- <li><a href="https://forms.gle/r35v3M7v7NvZaJiC7">Registration</a></li> -->
-      <!-- <li><a href="leaderboard.html">Leaderboard</a></li> -->
-    <!-- </ul> -->
+    <ul class="nav-links">
+     <li><a href="#">Home</a></li>
+     <li><a href="#award">🏆 2026 RoCo Awards</a></li>
+      <li class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown()">
+          Tracks ▾
+        </button>
+        <ul class="dropdown-menu" id="docDropdown">
+          <li><a href="industrial_assembly_overview.html">Industrial Board Assembly</a></li>
+          <li><a href="brick_assembly_overview.html">Brick Assembly</a></li>
+        </ul>
+      </li>
+      <li><a href="doc.html">Doc</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="onsite.html">Onsite</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd0eMP20_mwSkO6-KRKvtwKpPdqyTUDdi-Zf9aJSjdY2QcHEw/viewform">Registration</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
   </nav>
 </header>
 
@@ -215,7 +216,7 @@
     </ul>
   </div>
 
-  <h3>Awards</h3>
+  <h3 id="award">Awards</h3>
      <p>
       The top three teams in every track will walk away with cash prizes, and all remaining onsite finalists will receive runner-up awards.
       </p>
@@ -361,7 +362,7 @@
 
         <!-- Contact Section -->
         <div class="team-category">
-          <h4 class="team-title">Contact</h4>
+          <h4 class="team-title" id="contact">Contact</h4>
           <div style="text-align: left;">
             <p style="margin-bottom: 0.5rem; color: #333; font-size: 22px;">
               For technical and community support, please join our <a href="https://discord.gg/BvxEN5vAh3" target="_blank" style="color: #5865F2; text-decoration: none;">Discord</a>
@@ -405,6 +406,9 @@
       </a>
       
       <!-- 可继续添加更多赞助商Logo -->
+       <a href="https://www.dexmate.ai/" target="_blank" style="display: inline-block;">
+        <img src="assets/sponsors/dexmate.PNG" alt="Sponsor 7 Logo" style="height: 60px; object-fit: contain; transition: opacity 0.3s ease;">
+      </a>
       <a href="https://www.sharpa.com/" target="_blank" style="display: inline-block;">
         <img src="assets/sponsors/sharpa.png" alt="Sponsor 7 Logo" style="height: 60px; object-fit: contain; transition: opacity 0.3s ease;">
       </a>
@@ -427,7 +431,11 @@
   background-color: #000;
   color: white;
   padding: 10px 40px;
+
+  position: relative;
+  z-index: 9999;
 }
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -537,6 +545,64 @@
   text-align: center;
 }
 
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.dropbtn {
+  background: transparent;
+  border: none ;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Hidden by default */
+.dropdown-menu {
+  display: none;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background: white;
+  list-style: none;
+
+  padding: 10px 0;
+  margin: 0;
+
+  min-width: 220px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  z-index: 10000;
+}
+
+/* Show when active */
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f0f0;
+}
+
+
 </style>
     <script>
 // Video Gallery functionality
@@ -593,6 +659,27 @@ function updateVideo() {
     }
   });
 }
+
+function toggleDropdown() {
+  document.getElementById("docDropdown")
+    .classList.toggle("show");
+}
+
+/* Close dropdown when clicking outside */
+document.addEventListener("click", function(event) {
+
+  const dropdown = document.getElementById("docDropdown");
+  const button = document.querySelector(".dropbtn");
+
+  if (
+    !dropdown.contains(event.target) &&
+    !button.contains(event.target)
+  ) {
+    dropdown.classList.remove("show");
+  }
+});
+
+
 
 // Optional: Auto-advance videos every 10 seconds
 // setInterval(() => {
