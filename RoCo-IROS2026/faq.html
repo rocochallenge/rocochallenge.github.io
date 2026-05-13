@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoCo Onsite Experiments</title>
+
+<style>
+/* ===== Same CSS layout style as the schedule page ===== */
+:root{
+  --bg:#ffffff;
+  --fg:#111827;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --header:#0f172a;
+  --accent:#5865F2;
+  --tableHead:#f3f4f6;
+  --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Navbar */
+.navbar{
+  background:#222;
+  padding:12px 20px;
+  display:flex;
+  gap:20px;
+}
+.navbar a{
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+}
+.navbar a:hover{ text-decoration: underline; }
+
+/* Layout */
+.container{
+  margin: 22px auto;
+  width: 95%;
+  max-width: 1100px;
+}
+
+.page-title{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  margin: 12px 0 16px;
+}
+.page-title h1{
+  margin:0;
+  font-size: 26px;
+  color: var(--header);
+  letter-spacing: 0.2px;
+}
+.page-title .subtitle{
+  margin:0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Tools (dark mode toggle) */
+.tools{
+  display:flex;
+  justify-content:flex-end;
+  margin: 10px 0 14px;
+}
+button{
+  padding: 7px 10px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #f3f4f6;
+  color:#111827;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* Cards */
+.card{
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 16px 16px 12px;
+  margin-bottom: 14px;
+}
+
+.card h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: var(--header);
+}
+.card p{
+  margin: 0 0 10px;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.kv{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.kv .item{
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+/* Table */
+.table-wrap{
+  overflow-x:auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  background: #fff;
+}
+thead th{
+  background: var(--tableHead);
+  color: #111827;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 10px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+}
+tbody td{
+  padding: 10px 10px;
+  font-size: 13px;
+  border-bottom:1px solid var(--border);
+  color: #111827;
+  vertical-align: top;
+}
+tbody tr:last-child td{ border-bottom:none; }
+.col-task{ width: 120px; white-space: nowrap; font-weight: 800; color:#0f172a; }
+.col-def{ width: 320px; font-weight: 700; }
+.col-notes{ color:#374151; }
+
+/* Note */
+.note{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  background: #fafafa;
+}
+.note strong{ color:#111827; }
+
+/* Video */
+.video-wrap{
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #000;
+}
+.video-wrap iframe{
+  width: 100%;
+  height: 520px;
+  border: 0;
+}
+
+/* Footer */
+.footer{
+  margin: 18px 0 30px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Dark mode */
+.dark-mode{
+  --bg:#0b1220;
+  --fg:#e5e7eb;
+  --muted:#9ca3af;
+  --card:#0f172a;
+  --border:#1f2937;
+  --header:#e5e7eb;
+  --tableHead:#111827;
+  --shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+.dark-mode button{
+  background: #111827;
+  color: #e5e7eb;
+}
+.dark-mode table{ background: var(--card); }
+.dark-mode thead th{ color:#e5e7eb; }
+.dark-mode tbody td{ color:#e5e7eb; }
+.dark-mode .col-notes{ color:#cbd5e1; }
+.dark-mode .kv .item{ background:#0b1220; }
+.dark-mode .note{ background:#0b1220; }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+</div>
+
+<div class="container">
+
+  <div class="page-title">
+    <h1>2nd RoCo Challenge @ IROS 2026</h1>
+  </div>
+
+  <div class="tools">
+    <button onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+  <section class="card">
+    <h2>FAQ</h2>
+    <p>
+      If you have any questions about the 2026 RoCo Challenge, please check the FAQ below. For any further inquiries, feel free to contact us at <a href="rocochallenge@gmail.com">rocochallenge@gmail.com</a>.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="FAQ Table">
+        <thead>
+          <tr>
+            <th class="col-task">Question</th>
+            <th class="col-def">Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-task">What is the RoCo Challenge?</td>
+            <td class="col-def">The RoCo Challenge is a competition focused on evaluating Physical AI capbilities in physics understanding, dexterous manipulation, long-horizon reasoning, and generalizability, using assembly tasks as the evaluation benchmark.</td>
+          </tr>
+          <tr>
+            <td class="col-task">How many tasks are there in the challenge?</td>
+            <td class="col-def">The competition consists of two tracks, and each track contains multiple tasks. Please checkout the website for more details.</td>
+          </tr>
+          <tr>
+            <td class="col-task">When and where is the challenge held?</td>
+            <td class="col-def">The challenge will be held at the IROS 2026 conference in Pittsburgh, PA, USA.</td>
+          </tr>
+          <tr>
+            <td class="col-task">How can I participate in the challenge?</td>
+            <td class="col-def">Teams can register for the challenge using this <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0eMP20_mwSkO6-KRKvtwKpPdqyTUDdi-Zf9aJSjdY2QcHEw/viewform">signup form</a>. </td>
+          </tr>
+          <tr>
+            <td class="col-task">Which track should I join?</td>
+            <td class="col-def">Teams can indicate their preferred track during registration. We will do our best to accommodate team preferences and confirm their selections.</td>
+          </tr>
+          <tr>
+            <td class="col-task">Do all the team members need to register?</td>
+            <td class="col-def">No, only team captains need to register for the challenge.</td>
+          </tr>
+          <tr>
+            <td class="col-task">Will I compete onsite during the challenge?</td>
+            <td class="col-def">Teams that are selected as finalists will have the opportunity to compete onsite during the challenge. </td>
+          </tr>
+          <tr>
+            <td class="col-task">How are the finalists selected?</td>
+            <td class="col-def">All registered teams will submit their solutions as proposals, preliminary simulation results are highly-encouraged. We will select finalists based on the soundness of their submissions.</td>
+          </tr>
+          <tr>
+            <td class="col-task">What robot platforms will be used?</td>
+            <td class="col-def">We will use robot hardware from <a href="https://www.dexmate.ai/">DexMate</a> and <a href="https://www.sharpa.com/">Sharpa</a>, thanks to their support.</td>
+          </tr>
+          <tr>
+            <td class="col-task">What are the prizes for the challenge?</td>
+            <td class="col-def">We are excited to announce a total prize pool of $30K+ for the 2nd RoCo Challenge, generously sponsored by our partners! </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </section>
+</div>  
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+}
+</script>
+
+</body>
+</html>
