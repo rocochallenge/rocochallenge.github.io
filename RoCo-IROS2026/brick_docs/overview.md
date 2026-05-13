@@ -81,7 +81,7 @@ We represent a brick assembly structure using a JSON dictionary. Each node repre
     color
     }
 ``` 
-where `brick_id` denotes the brick type, `x, y, z` are the brick relative position in the structure. `ori` $\in [0, 1]$ is the brick orientation and `color` is the [color code](https://rebrickable.com/colors/) indicating the color of the brick. In this challenge, we will have 7 types of bricks, including *1x2, 1x4, 1x6, 1x8, 2x2, 2x4, and 2x6*, with different colors.
+where `brick_id` denotes the brick type, `x, y, z` are the brick relative position in the structure. `ori` is the brick orientation and `color` is the [color code](https://rebrickable.com/colors/) indicating the color of the brick. In this challenge, we will have 7 types of bricks, including *1x2, 1x4, 1x6, 1x8, 2x2, 2x4, and 2x6*, with different colors.
 
 ---
 
