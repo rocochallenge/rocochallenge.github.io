@@ -93,7 +93,7 @@ where `brick_id` denotes the brick type, `x, y, z` are the brick relative positi
 
 - 🥉: $2500
 
-- Runner-up Awards for all onsite teams.
+- In-kind awards for all onsite teams.
 
 
 We invite all onsite teams to the award ceremony and networking event.
