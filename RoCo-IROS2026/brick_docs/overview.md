@@ -69,7 +69,7 @@ where S1 is the total score achieved by completing type-1 tasks and S2_i is the 
 
 ---
 
-## Assembly Structure Representation
+## 🧱 Brick Representation
 We represent a brick assembly structure using a JSON dictionary. Each node represents a distinct brick in the structure with the following format:
 ```
 "id": {
