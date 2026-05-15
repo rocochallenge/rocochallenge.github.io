@@ -156,12 +156,7 @@
           </button>
 
           <div class="video-gallery-display">
-            <div class="gallery-video-frame">
-              <iframe id="gallery-video"
-                      src="https://player.vimeo.com/video/1143750035?autoplay=1&loop=1&autopause=0&muted=1&controls=0&title=0&byline=0&portrait=0&badge=0"
-                      frameborder="0" allowfullscreen>
-              </iframe>
-            </div>
+            <div id="gallery-track" class="gallery-track"></div>
           </div>
 
           <button class="gallery-nav gallery-nav-next" onclick="changeVideo(1)">
@@ -170,17 +165,6 @@
             </svg>
           </button>
         </div>
-        <div class="video-gallery-caption">
-          <p id="gallery-caption">Industrial Assembly in Simulation</p>
-        </div>
-
-        <div class="video-gallery-indicators">
-          <button class="gallery-indicator active" onclick="setVideo(0)"></button>
-          <button class="gallery-indicator" onclick="setVideo(1)"></button>
-          <button class="gallery-indicator" onclick="setVideo(2)"></button>
-          <button class="gallery-indicator" onclick="setVideo(3)"></button>
-        </div>
-
       </div>
 
     </section>
@@ -552,13 +536,6 @@
   font-weight: 500;
   color: #333;
 }
-#gallery-caption {
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
-  margin-top: 10px;
-  text-align: center;
-}
 
 
 .nav-links {
@@ -622,58 +599,47 @@
     <script>
 // Video Gallery functionality
 const videos = [
-  'https://player.vimeo.com/video/1143750035?autoplay=1&loop=1&autopause=0&muted=1&controls=0&title=0&byline=0&portrait=0&badge=0',
-  'https://player.vimeo.com/video/1134619711?autoplay=1&loop=1&autopause=0&muted=1&controls=0&title=0&byline=0&portrait=0&badge=0',
+  'assets/images/two_batteries.gif',
+  'assets/images/two_batteries1.gif',
   'https://player.vimeo.com/video/1186806483?autoplay=1&loop=1&autopause=0&muted=1&controls=0&title=0&byline=0&portrait=0&badge=0',
   'https://player.vimeo.com/video/1186758132?autoplay=1&loop=1&autopause=0&muted=1&controls=0&title=0&byline=0&portrait=0&badge=0'
 ];
 
 const captions = [
-  'Industrial Assembly in Simulation',
-  'Industrial Assembly in Reality',
+  'Task Board Assembly in Simulation',
+  'Task Board Assembly in Reality',
   'Brick Assembly in Simulation',
   'Brick Assembly in Reality'
 ];
+function renderGallery() {
+  const galleryTrack = document.getElementById('gallery-track');
 
-let currentVideoIndex = 0;
+  galleryTrack.innerHTML = videos.map((mediaSrc, index) => {
+    const caption = captions[index];
+    const media = mediaSrc.endsWith('.gif')
+      ? `<img src="${mediaSrc}" alt="${caption}">`
+      : `<iframe src="${mediaSrc}" title="${caption}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+
+    return `
+      <article class="gallery-item">
+        <div class="gallery-video-frame">${media}</div>
+        <p>${caption}</p>
+      </article>
+    `;
+  }).join('');
+}
 
 function changeVideo(direction) {
-  currentVideoIndex += direction;
+  const galleryTrack = document.getElementById('gallery-track');
+  const scrollAmount = galleryTrack.clientWidth * 0.9;
 
-  if (currentVideoIndex >= videos.length) {
-    currentVideoIndex = 0;
-  } else if (currentVideoIndex < 0) {
-    currentVideoIndex = videos.length - 1;
-  }
-
-  updateVideo();
-}
-
-function setVideo(index) {
-  currentVideoIndex = index;
-  updateVideo();
-}
-
-function updateVideo() {
-  const videoFrame = document.getElementById('gallery-video');
-  const captionElement = document.getElementById('gallery-caption');
-  const indicators = document.querySelectorAll('.gallery-indicator');
-
-  // Update video source
-  videoFrame.src = videos[currentVideoIndex];
-
-  // Update caption
-  captionElement.textContent = captions[currentVideoIndex];
-
-  // Update indicators
-  indicators.forEach((indicator, index) => {
-    if (index === currentVideoIndex) {
-      indicator.classList.add('active');
-    } else {
-      indicator.classList.remove('active');
-    }
+  galleryTrack.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
   });
 }
+
+renderGallery();
 
 function toggleDropdown() {
   document.getElementById("docDropdown")
@@ -693,13 +659,6 @@ document.addEventListener("click", function(event) {
     dropdown.classList.remove("show");
   }
 });
-
-
-
-// Optional: Auto-advance videos every 10 seconds
-// setInterval(() => {
-//   changeVideo(1);
-// }, 10000);
 </script>
 </body>
 
