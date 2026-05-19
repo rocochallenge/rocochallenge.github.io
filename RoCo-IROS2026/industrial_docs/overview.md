@@ -101,12 +101,6 @@ If multiple teams achieve the same `S_total`, the team that achieved the score i
 Teams that complete the industrial board assembly tasks using both **Sharpa North** and **DexMate Vega U** will receive an additional bonus in the final score to recognize performance across both robotic embodiments.
 
 ## 🏅 Award
-
-- 🥇: $10000
-
-- 🥈: $5000
-
-- 🥉: $2500
-
+Compete in a total of **$20K+** (Tentative) prize pool.
 
 We invite all onsite teams to the award ceremony and networking event.
