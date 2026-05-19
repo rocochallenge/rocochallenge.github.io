@@ -11,7 +11,10 @@ The RoCo Challenge uses brick assembly to assess Physical AI agents across four 
 • **Generalizability**: The agent must be able to learn, adapt, and generalize to unseen tasks, demonstrating genuine intelligence rather than rote memorization.
 The combinatorial nature of brick assembly unlocks an **infinite task space**, making it an ideal platform for evaluating generalizability.
 
-
+<p align="center">
+  <img src="assets/images/brick_structures.PNG" width="800">
+  <em>Figure 1: Infinite structures from bricks.</em>
+</p>
 
 ---
 
@@ -19,7 +22,7 @@ The combinatorial nature of brick assembly unlocks an **infinite task space**, m
 
 The Brick Assembly track features **two distinct evaluation tasks**. While all tasks require a solid grasp of physics and dexterous manipulation, the required reasoning capability progressively increases with each task. Initial setups are provided for all tasks to ensure an equal and standardized evaluation.
 
-### Task 1. Step Reasoning
+### Task 1. Step Assembly
 This task tests the agent's ability to perform a single-step assembly (e.g., successfully placing a single brick at a target location).
 
 #### **Input**: 
@@ -38,7 +41,7 @@ Pass/Fail. The agent receives **1 point** for successfully achieving the goal st
 Coming soon!
 
 
-### Task 2. Sequence Reasoning
+### Task 2. Sequence Assembly
 This task requires the agent to assemble a goal structure from scratch. The final structural layout is provided, but no step-by-step guidance is given. The agent must reason and plan the assembly sequence accordingly.
 
 #### **Input**: 
@@ -69,6 +72,20 @@ where S1 is the total score achieved by completing type-1 tasks and S2_i is the 
 
 ---
 
+## 🤖 Hardware
+The Brick Assembly track will use the 
+<a href="https://www.dexmate.ai/product/vega-u"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="color:#ff6600; font-weight:bold; text-decoration:none;">
+  DexMate Vega U
+</a>
+as the official robot platform, with simulation assets provided to support team development and preparation.
+
+We are excited to give participants hands-on access to state-of-the-art robotic embodiments through meaningful and challenging assembly tasks, advancing the future of embodied AI.
+
+---
+
 ## 🧱 Brick Representation
 We represent a brick assembly structure using a JSON dictionary. Each node represents a distinct brick in the structure with the following format:
 ```
@@ -86,14 +103,7 @@ where `brick_id` denotes the brick type, `x, y, z` are the brick relative positi
 ---
 
 ## 🏅 Award
-
-- 🥇: $10000
-
-- 🥈: $5000
-
-- 🥉: $2500
-
-- In-kind awards for all onsite teams.
+Compete in a total of **$20K+** (Tentative) prize pool.
 
 
 We invite all onsite teams to the award ceremony and networking event.
