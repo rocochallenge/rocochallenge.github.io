@@ -12,7 +12,7 @@ The RoCo Challenge uses brick assembly to assess Physical AI agents across four 
 The combinatorial nature of brick assembly unlocks an **infinite task space**, making it an ideal platform for evaluating generalizability.
 
 <p align="center">
-  <img src="assets/images/brick_structures.PNG" width="800">
+  <img src="brick_docs/figs/brick_structures.PNG" width="800">
   <em>Figure 1: Infinite structures from bricks.</em>
 </p>
 
@@ -37,8 +37,130 @@ This task tests the agent's ability to perform a single-step assembly (e.g., suc
 Pass/Fail. The agent receives **1 point** for successfully achieving the goal structure, and 0 points otherwise.
 
 #### **Example**: 
+* `structure_start.json`: 
+```
+{
+    "1": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ori": 0,
+        "brick_id": 2,
+        "color": 4
+    }
+}
+``` 
+* Initial assembly renderings.
+<p
+  align="center"
+  style="
+    display:grid;
+    grid-template-columns:repeat(15, auto);
+    gap:2px;
+    justify-content:center;
+  "
+>
+  <img src="brick_docs/figs/type1/start/frame_0001.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0002.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0003.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0004.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0005.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0006.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0007.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0008.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0009.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0010.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0011.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0012.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0013.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0014.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0015.png" width="100">
 
-Coming soon!
+  <img src="brick_docs/figs/type1/start/frame_0016.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0017.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0018.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0019.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0020.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0021.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0022.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0023.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0024.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0025.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0026.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0027.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0028.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0029.png" width="100">
+  <img src="brick_docs/figs/type1/start/frame_0030.png" width="100">
+</p>
+
+* `structure_goal.json`: 
+```
+{
+    "1": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ori": 0,
+        "brick_id": 2,
+        "color": 4
+    },
+    "2": {
+        "x": 0,
+        "y": 0,
+        "z": 1,
+        "ori": 0,
+        "brick_id": 2,
+        "color": 1
+    }
+}
+``` 
+* Goal assembly renderings.
+<p
+  align="center"
+  style="
+    display:grid;
+    grid-template-columns:repeat(15, auto);
+    gap:2px;
+    justify-content:center;
+  "
+>
+  <img src="brick_docs/figs/type1/goal/frame_0001.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0002.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0003.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0004.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0005.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0006.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0007.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0008.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0009.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0010.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0011.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0012.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0013.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0014.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0015.png" width="100">
+
+  <img src="brick_docs/figs/type1/goal/frame_0016.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0017.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0018.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0019.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0020.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0021.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0022.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0023.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0024.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0025.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0026.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0027.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0028.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0029.png" width="100">
+  <img src="brick_docs/figs/type1/goal/frame_0030.png" width="100">
+</p>
+
+* Successful Execution
+
+Coming Soon!
+
 
 
 ### Task 2. Sequence Assembly
@@ -56,8 +178,73 @@ We compare the assembled structure against the goal structure. The score is calc
 
 #### **Example**: 
 
-Coming soon!
+* `structure.json`: 
+```
+{
+    "1": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "ori": 0,
+        "brick_id": 2,
+        "color": 4
+    },
+    "2": {
+        "x": 0,
+        "y": 0,
+        "z": 1,
+        "ori": 0,
+        "brick_id": 2,
+        "color": 1
+    }
+}
+``` 
+* Goal assembly renderings.
+<p
+  align="center"
+  style="
+    display:grid;
+    grid-template-columns:repeat(15, auto);
+    gap:2px;
+    justify-content:center;
+  "
+>
+  <img src="brick_docs/figs/type2/frame_0001.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0002.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0003.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0004.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0005.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0006.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0007.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0008.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0009.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0010.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0011.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0012.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0013.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0014.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0015.png" width="100">
 
+  <img src="brick_docs/figs/type2/frame_0016.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0017.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0018.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0019.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0020.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0021.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0022.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0023.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0024.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0025.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0026.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0027.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0028.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0029.png" width="100">
+  <img src="brick_docs/figs/type2/frame_0030.png" width="100">
+</p>
+
+* Successful Execution
+
+Coming Soon!
 
 ---
 
@@ -69,6 +256,13 @@ The **final score** for the Brick Assembly track will be calculated as
 
 where S1 is the total score achieved by completing type-1 tasks and S2_i is the score by completing the i-th task in type-2 tasks.
 
+The above example robotic execution will receive a score of
+
+```
+S1 = 1
+S2_1 = 2
+Final Score = 1 + 2^2 = 5
+```
 
 ---
 
@@ -98,7 +292,14 @@ We represent a brick assembly structure using a JSON dictionary. Each node repre
     color
     }
 ``` 
-where `brick_id` denotes the brick type, `x, y, z` are the brick relative position in the structure. `ori` is the brick orientation and `color` is the [color code](https://rebrickable.com/colors/) indicating the color of the brick. In this challenge, we will have 7 types of bricks, including *1x2, 1x4, 1x6, 1x8, 2x2, 2x4, and 2x6*, with different colors.
+where `brick_id` denotes the brick type, `x, y, z` are the brick relative position in the structure. `ori` is the brick orientation and `color` is the 
+<a href="https://rebrickable.com/colors/"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="color:#ff6600; font-weight:bold; text-decoration:none;">
+  color code
+</a> 
+indicating the color of the brick. In this challenge, we will have 7 types of bricks, including *1x2, 1x4, 1x6, 1x8, 2x2, 2x4, and 2x6*, with different colors.
 
 ---
 
