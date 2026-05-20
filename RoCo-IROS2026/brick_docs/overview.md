@@ -157,9 +157,34 @@ Pass/Fail. The agent receives **1 point** for successfully achieving the goal st
   <img src="brick_docs/figs/type1/goal/frame_0030.png" width="100">
 </p>
 
-* Successful Execution
+* Example Execution
 
-Coming Soon!
+<div
+  align="center"
+  style="
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:nowrap;
+  "
+>
+
+  <figure style="text-align:center;">
+    <img
+      src="brick_docs/figs/type1/step_success.gif"
+      style="height:300px; width:auto;"
+    >
+    <figcaption><b>Successful Step Assembly</b></figcaption>
+  </figure>
+
+  <figure style="text-align:center;">
+    <img
+      src="brick_docs/figs/type1/step_fail.gif"
+      style="height:300px; width:auto;"
+    >
+    <figcaption><b>Failed Step Assembly</b></figcaption>
+  </figure>
+</div>
 
 
 
@@ -244,7 +269,32 @@ We compare the assembled structure against the goal structure. The score is calc
 
 * Successful Execution
 
-Coming Soon!
+<div
+  align="center"
+  style="
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:nowrap;
+  "
+>
+
+  <figure style="text-align:center;">
+    <img
+      src="brick_docs/figs/type2/sequence_success.gif"
+      style="height:300px; width:auto;"
+    >
+    <figcaption><b>Successful Sequence Assembly</b></figcaption>
+  </figure>
+
+  <figure style="text-align:center;">
+    <img
+      src="brick_docs/figs/type2/sequence_fail.gif"
+      style="height:300px; width:auto;"
+    >
+    <figcaption><b>Failed Sequence Assembly</b></figcaption>
+  </figure>
+</div>
 
 ---
 
@@ -256,12 +306,19 @@ The **final score** for the Brick Assembly track will be calculated as
 
 where S1 is the total score achieved by completing type-1 tasks and S2_i is the score by completing the i-th task in type-2 tasks.
 
-The above example robotic execution will receive a score of
+The above example **successful** execution will receive a score of
 
 ```
 S1 = 1
 S2_1 = 2
 Final Score = 1 + 2^2 = 5
+```
+The example **failed** execution will receive a score of
+
+```
+S1 = 0
+S2_1 = 1
+Final Score = 0 + 1^2 = 1
 ```
 
 ---
