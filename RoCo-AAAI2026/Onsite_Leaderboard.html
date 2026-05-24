@@ -233,6 +233,33 @@ th.col-inst, td.meta {
 .col-inst{ width: 260px; }
 .col-score{ width: 120px; }
 .col-small{ width: 80px; }
+
+@media (max-width: 768px){
+  .navbar,
+  .navbar .left{
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+  .navbar{
+    align-items: flex-start;
+    padding: 10px 14px;
+  }
+  .container{
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+  .header h1{
+    font-size: 22px;
+  }
+  .stat{
+    min-width: min(100%, 160px);
+    flex: 1;
+  }
+  table{
+    min-width: 980px;
+  }
+}
 </style>
 </head>
 

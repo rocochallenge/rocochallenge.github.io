@@ -29,6 +29,19 @@
     .sidebar-file { cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; display: block; }
     .sidebar-file:hover { background-color: #e0e7ff; }
     .active-file { background-color: #c7d2fe; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      body { height: auto; min-height: 100vh; }
+      header { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .content { flex-direction: column; overflow: visible; }
+      aside { width: 100%; max-height: 36vh; border-right: 0; border-bottom: 1px solid #e5e7eb; }
+      main { width: 100%; max-width: 100vw; padding: 1.25rem; box-sizing: border-box; overflow-x: auto; overflow-wrap: anywhere; }
+      main h1, main h2, main h3, main p, main li { max-width: min(340px, calc(100vw - 40px)); }
+      main h1 { font-size: 1.75rem; }
+      main h2 { font-size: 1.45rem; }
+      main h3 { font-size: 1.2rem; }
+      main img, main table { max-width: 100%; }
+    }
   </style>
 </head>
 

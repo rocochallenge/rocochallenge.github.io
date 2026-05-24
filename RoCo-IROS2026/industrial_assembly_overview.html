@@ -64,6 +64,21 @@
     .markdown p { margin-bottom: 1em; line-height: 1.6; color: #374151; }
     .markdown ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1em; }
     .markdown li { margin-bottom: 0.5em; }
+
+    @media (max-width: 768px) {
+      body { height: auto; min-height: 100vh; }
+      header { padding-left: 1rem !important; padding-right: 1rem !important; }
+      .content { flex-direction: column; overflow: visible; }
+      aside { width: 100%; max-height: 36vh; border-right: 0; border-bottom: 1px solid #e5e7eb; }
+      main { width: 100%; max-width: 100vw; padding: 1.25rem; box-sizing: border-box; overflow-x: auto; }
+      .markdown { overflow-wrap: anywhere; }
+      .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown p, .markdown li { max-width: min(340px, calc(100vw - 40px)); }
+      .markdown h1 { font-size: 1.75rem; }
+      .markdown h2 { font-size: 1.45rem; }
+      .markdown h3 { font-size: 1.2rem; }
+      .markdown h4 { font-size: 1.05rem; }
+      .markdown img, .markdown table { max-width: 100%; }
+    }
   </style>
 </head>
 
