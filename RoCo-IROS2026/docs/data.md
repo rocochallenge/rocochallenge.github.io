@@ -2,7 +2,7 @@
 
 ## 📘 Overview
 
-The **RoCoChallenge2026** dataset is part of the **AAAI 2026 Human-Centric Manufacturing Workshop Challenge**, focusing on **collaborative gearbox assembly**.  
+The **RoCoChallenge2026** dataset is part of the **RoCo Challenge @ IROS 2026**, focusing on **collaborative assembly**.  
 It contains synchronized multimodal observations and actions collected from a **bimanual robotic platform** performing human-robot collaborative assembly tasks.  
 
 ---

@@ -1,4 +1,4 @@
-# RoCo Challenge @ AAAI 2026
+# RoCo Challenge @ IROS 2026
 ## 🌐 Challenge Overview
 The Gearbox assembly Assistance Challenge evaluates robotic systems in collaborative gearbox assembly within human-centric manufacturing environments. It targets scenarios where robots must work seamlessly with human operators. The challenge focuses on:
 
@@ -10,7 +10,7 @@ The Gearbox assembly Assistance Challenge evaluates robotic systems in collabora
 
 • **Autonomous Continuation**: Autonomously completing assembly with generalized part placement.
 
-Two complementary tracks are designed: **Simulation** and **Onsite Track**. The challenge aligns with HCM-AAAI26 by emphasizing human–robot collaboration, error handling, and proactive assistance in complex manufacturing processes.
+Two complementary tracks are designed: **Simulation** and **Onsite Track**. The challenge aligns with IROS 2026 by emphasizing human–robot collaboration, error handling, and proactive assistance in complex manufacturing processes.
 
 ---
 
@@ -96,71 +96,13 @@ A correctly assembled part is defined as a part that is successfully picked and 
 ---
 
 ## 📅 Time Schedule
-**Cadence:** Preparation → Public Release → Online Competition (Simulation track) → Onsite Finals (Onsite track)
+**Cadence:** Proposal review → Simulation Competition → Onsite finalist selection → Ongoing preparation
 
-
-### Phase A · Public Release — Nov 10, 2025
-- **Open:** Team registration; simulation submission portal.
-- **Publish:** Website, rules v1.0, dataset, evaluator, baselines; leaderboard policy.
-- **Comms:** Kick-off webinar & FAQ v1.0.
-- **Note:** The registration deadline is the same as the submission deadline.
-
-### Phase B · Online Competition (Simulation) — Nov 10, 2025 → Jan 17, 2026
-- **Submission cadence:** Rolling; leaderboard refresh bi-weekly (Fri 18:00 UTC)
-- **Checkpoints:**
-  - Rules Freeze: Dec 10, 2025 — thereafter only clarifications.
-  - CP-1: Dec 13, 2025 — interim reportable results (Not mandatory).
-  - CP-2 (final online): Jan 17, 2026 — last leaderboard submission.
-- **Required package (Teams):** Docker image + logs; short method card (≤2 pages)
-- **Evaluation:** Reproducibility re-runs for top-k; anomaly review
-- **Shortlist Notification:** Jan 19, 2026 — finalists invited to onsite
-
-### Phase C · Onsite Finals (Real-World) — Jan 24-26, 2026
-#### Day 1 — Team Setup & Calibration ( Jan 24 )
-
-- **Welcome & Briefing** (~20 min)  
-  Opening remarks, competition overview, and safety protocol introduction.
-
-- **System Registration & Workspace Assignment** (~20 min)  
-  Team check-in, workspace allocation, and hardware verification.
-
-- **Team Calibration Sessions (Teams 1–3)** (3 × 2 h)  
-  Each team receives a 2-hour slot for setup, robot calibration, and HRI protocol rehearsal.
-
-- **Lunch / Networking Break** (~1.5 h)  
-  Informal interaction among teams, judges, and organizers.
-
-- **Team Calibration Sessions (Teams 4–6)** (3 × 2 h)  
-  Environment integration, perception tuning, and dry-run validation for remaining teams.
-
-- **System Integration Check** (~1 h)  
-  Unified review
-
----
-
-#### Day 2 — Onsite Finals & Demonstrations ( Jan 25 )
-
-- **Final Briefing & Readiness Review** (~30 min)  
-  Confirmation of competition environment and evaluation procedure.
-
-- **Unified Model Testing Phase** (~3–4 h)  
-  All teams execute standardized test cases using the final models submitted at the end of Day 1; reproducibility and fairness verified by judges.
-
-- **Official Onsite Trials** (~3 h)  
-  Sequential evaluation of all teams following the unified testing stage; task success, assembly-order correctness recorded.
-
-- **Metric Computation & Feedback Session** (~1 h)  
-  Judges compute normalized task scores, review logs, and prepare preliminary ranking.
----
-
-
-#### Day 3 — AAAI Workshop & Award Session ( Jan 26 )
-
-- **Award Ceremony @ AAAI Venue** (~10 min)  
-  Top 3 teams recognized at the AAAI HCM Workshop plenary; certificates and prizes presented.
-
-- **Technical Talks by Top 2 Teams** (~1 h)  
-  Invited presentations on system design, policy architecture, and lessons learned during the RoCo Challenge.
+- **June 22:** Proposal Deadline
+- **June 29:** Pre-Finalists Announced
+- **Now – August:** Simulation Competition
+- **August 31:** Leaderboard Closes & Onsite Finalists Announced
+- **Now – September:** Ongoing Preparation
 
 #### General Policies:
 
