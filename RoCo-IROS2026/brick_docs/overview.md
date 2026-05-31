@@ -18,6 +18,25 @@ The combinatorial nature of brick assembly unlocks an **infinite task space**, m
 
 ---
 
+## 📊 Leaderboard
+
+*Last updated: June 2026*
+
+| Rank | Team Name | Method | Success Rate | Structural Stability | Inference Modality (No Ground-Truth) | Assembly Time | Date Submitted |
+| :---: | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| 🥇 1 | Team Alpha | ViT-BrickAssembler | 92.5% | 0.98 | Vision-Only | 45.2s | 2026-06-15 |
+| 🥈 2 | BuilderBots | Diff-Assemble | 89.0% | 0.95 | Vision-Only | 50.1s | 2026-06-12 |
+| 🥉 3 | DexterousNet | RL-Manipulator | 85.4% | 0.91 | Vision-Only | 55.8s | 2026-06-10 |
+| 4 | Baseline | Heuristic Policy | 12.0% | 0.20 | Vision-Only | 120.0s | 2026-06-01 |
+
+<br>
+<br>
+
+**Submit your policy here:** 
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSccX2z_FgEUCqkXOXR8kO5g2lBR08xoWpv1A8NBNpp2s0O_Sg/viewform" target="_blank" style="display: inline-block; padding: 10px 10px; background-color: #2e83a4; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: sans-serif;">🚀 Submit Policy</a>
+
+---
+
 ## 🤺 Tasks
 
 The Brick Assembly track features **two distinct evaluation tasks**. While all tasks require a solid grasp of physics and dexterous manipulation, the required reasoning capability progressively increases with each task. Initial setups are provided for all tasks to ensure an equal and standardized evaluation.
