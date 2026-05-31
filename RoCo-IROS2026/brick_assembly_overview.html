@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RoCo 2026 Brick Assembly Documentation</title>
 
-  <!-- Tailwind -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <!-- Markdown Parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <!-- Syntax Highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <style>
     body {
       display: flex;
@@ -81,23 +81,17 @@
 </head>
 
 <body>
-  <!-- Navigation -->
   <header class="w-full bg-white shadow-sm flex items-center justify-between px-8 py-3">
     <div class="flex items-center space-x-6">
       <a href="index.html" class="font-semibold text-xl text-blue-600">RoCo @ IROS 2026</a>
     </div>
   </header>
 
-  <!-- Sidebar + Content -->
   <div class="content">
     <aside>
       <h2 class="text-gray-700 font-semibold mb-4">Brick Assembly</h2>
       <div id="file-list" class="mb-4">
         <span class="sidebar-file active-file" data-file="brick_docs/overview.md">Overview</span>
-        <!-- <span class="sidebar-file" data-file="brick_docs/examples.md">Task Examples</span>
-        <span class="sidebar-file" data-file="brick_docs/metrics.md">Metrics</span>
-        <span class="sidebar-file" data-file="brick_docs/software.md">Software</span>
-        <span class="sidebar-file" data-file="brick_docs/onsite.md">Onsite</span> -->
       </div>
       <ul id="sidebar-links" class="space-y-2 text-sm"></ul>
     </aside>
@@ -108,7 +102,7 @@
    <script>
     const content = document.getElementById('markdown-content');
     const sidebar = document.getElementById('sidebar-links');
-    let headers = []; // 当前文档 H1/H2 列表
+    let headers = [];
 
     function loadMarkdown(file) {
       fetch(file)
@@ -117,13 +111,96 @@
           return res.text();
         })
         .then(md => {
-          // 渲染 Markdown
+          // Render Markdown
           content.innerHTML = marked.parse(md, {
             highlight: (code, lang) => hljs.highlightAuto(code, [lang]).value
           });
           hljs.highlightAll();
 
-          // 清空旧导航
+          // === ADDED: DataTables Initialization ===
+          if (document.getElementById('leaderboard')) {
+              if ($.fn.DataTable.isDataTable('#leaderboard')) {
+                  $('#leaderboard').DataTable().destroy();
+              }
+              
+              var table = $('#leaderboard').DataTable({
+                  "ajax": {
+                      "url": "brick_docs/leaderboard.json", 
+                      "dataSrc": ""  
+                  },
+                  "columns": [
+                      /* 1. Unbind JSON rank (DataTables will control this column) */
+                      { "data": null, "defaultContent": "", "searchable": false, "orderable": false },
+                      { "data": "team" },
+                      { "data": "affiliation"},
+                      { "data": "robot" },
+                      { "data": "type1" },
+                      { "data": "type2" },
+                      { 
+                          "data": "runtime",
+                          "render": function(data, type, row) {
+                              if (type === 'sort') return parseFloat(data); 
+                              return data;
+                          }
+                      },
+                      { 
+                          "data": "score", /* Score Column */
+                          "render": function(data, type, row) {
+                              if (type === 'sort') return parseFloat(data); 
+                              return data;
+                          }
+                      },
+                      { "data": "date" },
+                  ],
+                  "order": [
+                      [ 7, "desc" ], /* Primary: Success Rate (Highest first) */
+                      [ 6, "asc" ]   /* Tiebreaker: Assembly Time (Fastest first) */
+                  ],
+                  "paging": false,
+                  "info": false,
+                  "searching": false
+              });
+
+              /* Advanced Tie-Breaking Logic */
+              table.on('draw.dt', function () {
+                  // Fetch the sorted row data and the physical HTML cells
+                  let rows = table.rows({ search: 'applied', order: 'applied' }).data();
+                  let cells = table.column(0, { search: 'applied', order: 'applied' }).nodes();
+
+                  let currentRank = 1;
+                  let previousScore = null;
+                  let previousTime = null;
+
+                  for (let i = 0; i < rows.length; i++) {
+                      // Parse the data for mathematical comparison
+                      let currentScore = parseFloat(rows[i].score);
+                      let currentTime = parseFloat(rows[i].runtime);
+
+                      if (i > 0) {
+                          // Check if both score and time perfectly match the previous row
+                          if (currentScore === previousScore && currentTime === previousTime) {
+                              // It's a tie! Keep currentRank the same.
+                          } else {
+                              // Not a tie. Jump the rank to the current row position.
+                              currentRank = i + 1;
+                          }
+                      }
+
+                      // Store current values to compare against the next row
+                      previousScore = currentScore;
+                      previousTime = currentTime;
+
+                      // Assign the text and medals
+                      let rankText = currentRank;
+                      cells[i].innerHTML = rankText;
+                  }
+              });
+          }
+          // ========================================
+          // ========================================
+          // ========================================
+
+          // Clear old navigation
           sidebar.innerHTML = '';
           headers = content.querySelectorAll('h1, h2');
           headers.forEach((h) => {
@@ -135,7 +212,7 @@
             sidebar.appendChild(li);
           });
 
-          // 自动高亮第一个标题
+          // Highlight current
           highlightCurrent();
         })
         .catch(err => console.error(err));
@@ -155,10 +232,10 @@
       });
     }
 
-    // 滚动监听，只绑定一次
+    // Scroll listener
     window.addEventListener('scroll', highlightCurrent, { passive: true });
 
-    // 文件切换事件
+    // File switch event
     const fileList = document.querySelectorAll('.sidebar-file');
     fileList.forEach(el => {
       el.addEventListener('click', () => {
@@ -168,7 +245,7 @@
       });
     });
 
-    // 默认加载第一个文件
+    // Default load first file
     loadMarkdown(fileList[0].dataset.file);
   </script>
 </body>
