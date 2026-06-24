@@ -64,6 +64,55 @@
     .markdown p { margin-bottom: 1em; line-height: 1.6; color: #374151; }
     .markdown ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1em; }
     .markdown li { margin-bottom: 0.5em; }
+    .markdown a {
+      color: #0f766e;
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: #99f6e4;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease, background-color 0.2s ease;
+    }
+    .markdown a:hover {
+      color: #115e59;
+      text-decoration-color: #14b8a6;
+    }
+    .markdown a.resource-link {
+      display: inline-block;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      background: #ccfbf1;
+      color: #134e4a;
+      text-decoration: none;
+      box-shadow: inset 0 0 0 1px #5eead4;
+    }
+    .markdown a.resource-link:hover {
+      background: #99f6e4;
+      color: #042f2e;
+      box-shadow: inset 0 0 0 1px #14b8a6;
+    }
+    .markdown table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      font-size: 0.95rem;
+    }
+    .markdown th,
+    .markdown td {
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 0.9rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    .markdown th {
+      background: #e0f2fe;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .markdown tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
 
     @media (max-width: 768px) {
       body { height: auto; min-height: 100vh; }
@@ -78,6 +127,8 @@
       .markdown h3 { font-size: 1.2rem; }
       .markdown h4 { font-size: 1.05rem; }
       .markdown img, .markdown table { max-width: 100%; }
+      .markdown th,
+      .markdown td { min-width: 120px; padding: 0.65rem 0.75rem; }
     }
   </style>
 </head>
@@ -108,6 +159,21 @@
     const sidebar = document.getElementById('sidebar-links');
     let headers = [];
 
+    function highlightResourceLinks() {
+      const resourceHeading = Array.from(content.querySelectorAll('h2, h3')).find(
+        (h) => h.textContent.trim().toLowerCase() === 'resources'
+      );
+      if (!resourceHeading) return;
+
+      let node = resourceHeading.nextElementSibling;
+      while (node && !/^H[1-6]$/.test(node.tagName)) {
+        if (node.tagName === 'UL') {
+          node.querySelectorAll('a').forEach((link) => link.classList.add('resource-link'));
+        }
+        node = node.nextElementSibling;
+      }
+    }
+
     function loadMarkdown(file) {
       fetch(file)
         .then(res => {
@@ -119,6 +185,7 @@
             highlight: (code, lang) => hljs.highlightAuto(code, [lang]).value
           });
           hljs.highlightAll();
+          highlightResourceLinks();
 
           sidebar.innerHTML = '';
           headers = content.querySelectorAll('h1, h2');

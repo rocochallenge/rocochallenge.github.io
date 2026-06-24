@@ -12,93 +12,92 @@ RoCo evaluates agents across four core dimensions:
 
 • **Generalizability**: The agent must learn, adapt, and generalize to unseen tasks, demonstrating robust intelligence rather than memorized behavior.
 
-The Industrial Board Assembly track emphasizes practical deployment, dexterous manipulation, contact-rich assembly, and coordinated long-horizon execution on a task board inspired by the NIST task board.
+The Industrial Board Assembly track emphasizes practical deployment, contact-rich assembly, and coordinated long-horizon execution on a task board inspired by the NIST task board.
 
 To support different participant interests and research preferences, this track contains **two sub-tracks** using the same industrial task board but different robotic embodiments:
 
-* **Sharpa North:** A versatile mobile manipulator with two robotic arms and 22-DoF dexterous hands, designed for a wide range of manipulation tasks.
-* **DexMate Vega U:** An advanced bimanual robot with 7-DoF arms and grippers (UMI-supported), optimized for precision and contact-rich assembly tasks.
+* **DexMate Vega U:** A gripper-based bimanual robot with 7-DoF arms, optimized for precision pick-and-place and contact-rich assembly.
+* **Sharpa North:** A dexterous hand-based mobile manipulator with two robotic arms and 22-DoF hands, designed for more flexible manipulation strategies.
 
-These two embodiments allow teams to explore both gripper-based manipulation and more challenging, highly promising dexterous manipulation. We encourage teams to participate in both sub-tracks and contribute their talents across both embodiment settings. Teams that use both embodiments to complete the task board assembly tasks will receive an extra bonus in the final score.
+Simulation assets and real-robot data will be released for participant use. We strongly encourage teams to participate in both sub-tracks and compete for awards in both the gripper-based and dexterous hand-based settings. To further support broad participation, we are also considering a proportional scoring method across sub-tracks so that every team has a fair opportunity to compete on both the DexMate Vega U and Sharpa North embodiments.
 
-Simulation assets and real-robot data will be released for proper team usage. We are excited to provide participants with access to these leading robotic embodiments in meaningful and challenging industrial assembly tasks, supporting future applications of embodied AI.
+## Resources
+
+* Simulation code repository: <https://github.com/rocochallenge/RoCo_TaskBoardAssembly>
+* First released simulation dataset on HuggingFace: <https://huggingface.co/datasets/rocochallenge2025/rocochallenge2026_Industrial_Assembly>
 
 ---
 
 ## 🤺 Tasks
-The robot must complete a sequence of industrial assembly operations on a task board. The same task board is used in both the **Sharpa North** and **DexMate Vega U** sub-tracks. The task board is designed to test perception, precision, contact-rich manipulation, and long-horizon autonomy.
+The robot must complete a sequence of 9 industrial assembly operations on a task board. The harness walks `part_order` top-to-bottom, and each row below corresponds to one episode of `Policy.act` / `Policy.is_done`.
 
 ### Trial Input
-At the start of each trial, the robot is presented with:
+At the start of each trial, the robot is given:
 
-* An empty industrial task board.
-* A standardized kit area.
-* Color-coded M4/M3 screws.
-* Communication connectors, including RJ45, USB-A, USB-C, and HDMI.
-* Industrial pins.
-* Flexible cables.
-* Three types of cylindrical batteries: D, AA, and AAA.
-* A standardized bolt dispenser for screws.
-* Simulation assets and real-robot data for developing, testing, and validating policies.
+* A fixed task board with the target attachment locations already defined.
+* One current part instance from `part_order`, evaluated in the order listed below.
+* The release mode for that part: either `open` or `snap`.
+* The corresponding scene state, including the board root and any target slot used for placement or snap evaluation.
+* The part-specific success rule used by the harness: either position-based `grade_pos` or a successful snap event.
 
-All components are pre-arranged in designated positions within the kit layout to ensure a fair and repeatable starting condition for every team.
+The current task set consists of the following 9 parts:
+
+| # | name | source USD | release | snap target slot (parent body) | scoring |
+|---|------|------------|---------|---------------------------------|---------|
+| 1 | `gear_20teeth` | `parts/gear_20teeth.usdc` | open | — | `grade_pos` (mesh translate, <= 10 mm) |
+| 2 | `gear_60teeth` | `parts/gear_60teeth.usdc` | open | — | `grade_pos` (mesh translate, <= 10 mm) |
+| 3 | `rod_16mm` | `parts/rod_16mm.usdc` | snap | `task_board_color/root_001/_188_028` (w/ bolt) | snap fired |
+| 4 | `bolt_8mm` | `parts/bolt_8mm.usdc` | snap | `task_board_color/root_001/_188_028` (w/ rod) | snap fired |
+| 5 | `usb_a` | `parts/usb_a.usdc` | snap | `task_board_color` (board root) | snap fired |
+| 6 | `hdmi` | `parts/hdmi.usdc` | snap | `task_board_color` (board root) | snap fired |
+| 7 | `pin` | `parts/pin.usdc` | snap | `task_board_color/_188_001` | snap fired |
+| 8 | `battery_size1` | `parts/battery_size1.usdc` | open | — | `grade_pos` (AABB midpoint, <= 10 mm) |
+| 9 | `battery_size5` | `parts/battery_size5.usdc` | open | — | `grade_pos` (AABB midpoint, <= 10 mm) |
 
 ### Procedure
-The assembly sequence is strictly defined to simulate an industrial production line. During the trial, the robot must autonomously identify, pick, and assemble parts into their assigned regions. No human intervention is permitted after the procedure begins.
+The assembly sequence is strictly defined by `part_order`, and the harness walks it from top to bottom. Each row in the table above corresponds to one episode of `Policy.act` / `Policy.is_done`.
 
-#### Task 1. Precision Screw Fastening
-The robot retrieves and drives multi-specification screws into their corresponding threaded holes. The screws are color-coded by size.
+For each part, the policy is expected to:
 
-A screw is considered successfully fastened when it is vertically stable and has sufficient thread engagement so that it cannot be extracted by axial force.
+* Identify the current part in `part_order`.
+* Pick the part from its initial scene location.
+* Transport and align it with the correct target region or snap slot.
+* Complete the required release behavior according to the part's mode.
+* Satisfy the success condition for that part before moving to the next one.
 
-#### Task 2. Heterogeneous Connector Mating
-The robot inserts multiple electrical interfaces, including RJ45, industrial pins, USB-A, USB-C, and HDMI connectors.
+For `open` parts, success is evaluated by `grade_pos`: the part must be placed so that the relevant mesh translation or AABB midpoint is within 10 mm of the target. For `snap` parts, success is achieved only when the part is aligned with the designated target slot and the snap event fires successfully.
 
-Each connector must be fully seated in its corresponding port, with robust mechanical engagement and electrical continuity.
+`rod_16mm` and `bolt_8mm` should be treated as ordinary snap parts. Although `PERMANENT_PARTS = {bolt_8mm, rod_16mm}` remains defined in `param_config.py`, it is vestigial and is no longer consumed by the runner.
 
-#### Task 3. Cable Termination and Routing
-The robot inserts cable terminals and routes flexible wires through the board's routing constraints.
-
-The final cable layout should be organized, follow the designated path, and avoid snagging or displacement.
-
-#### Task 4. Battery Installation
-The robot installs D-cell, AA, and AAA batteries into their corresponding polarity-matched compartments.
-
-The robot must determine the correct battery-to-compartment mapping using geometric and label cues, then place each battery with the correct polarity orientation.
-
-The trial ends when the robot completes the full sequence or the maximum time limit is reached.
+The trial ends after all 9 parts have been attempted or when the maximum time limit is reached.
 
 ---
 
 ## 🧭 Score
-Performance is evaluated using a hierarchical weighted scoring mechanism. The primary metric is the **Total Completion Score** `S_total`; the **Task Completion Time** `T` is used as a secondary tie-breaker.
+Each trial is scored by the number of successfully assembled parts, from 0 to 9.
 
-The final score is the arithmetic mean of the normalized scores across the four functional procedures:
+The final score is the arithmetic mean of the assembled part counts across 10 independent trials:
 
+```text
+S_final = (1 / 10) * sum(n_k), for k = 1, ..., 10
 ```
-S_total = (1 / 4) * sum(n_i / N_i), for i = 1, 2, 3, 4
-```
 
-where:
-
-* `i` represents one of the four procedures: screw fastening, connector mating, cable routing, and battery installation.
-* `n_i` is the number of successfully assembled components in the `i`-th procedure.
-* `N_i` is the total number of target assembly tasks assigned to the `i`-th procedure.
-* `n_i / N_i` is the normalized performance index for that procedure, constrained to the range `[0, 1]`.
-
-Each procedure contributes **25%** of the total score, regardless of the number of components involved. This balances high-precision tasks, such as HDMI insertion, with high-volume tasks, such as screw fastening.
+where `n_k` is the number of successfully assembled parts in trial `k`.
 
 ### Successful Assembly Criteria
-Within each procedure, a team earns one point for each successfully completed assembly unit:
+Each part contributes 1 point only when its current task-specific success condition is met:
 
-* **Fastening (Q1)**: Each screw must exhibit vertical stability and resist axial extraction.
-* **Connectors (Q2)**: Each connector, such as RJ45, USB, or HDMI, must be fully seated with confirmed mechanical engagement.
-* **Routing (Q3)**: Each cable terminal must be inserted, and each wire must follow the designated path without displacement.
-* **Batteries (Q4)**: Each battery must be placed in its corresponding housing with the correct polarity orientation.
+* **`gear_20teeth`**: `grade_pos` succeeds using the mesh translation target, within 10 mm.
+* **`gear_60teeth`**: `grade_pos` succeeds using the mesh translation target, within 10 mm.
+* **`rod_16mm`**: the snap event fires successfully at `task_board_color/root_001/_188_028` together with the bolt counterpart.
+* **`bolt_8mm`**: the snap event fires successfully at `task_board_color/root_001/_188_028` together with the rod counterpart.
+* **`usb_a`**: the snap event fires successfully at the board root `task_board_color`.
+* **`hdmi`**: the snap event fires successfully at the board root `task_board_color`.
+* **`pin`**: the snap event fires successfully at `task_board_color/_188_001`.
+* **`battery_size1`**: `grade_pos` succeeds using the AABB midpoint target, within 10 mm.
+* **`battery_size5`**: `grade_pos` succeeds using the AABB midpoint target, within 10 mm.
 
-If multiple teams achieve the same `S_total`, the team that achieved the score in the shortest duration `T` will be ranked higher.
-
-Teams that complete the industrial board assembly tasks using both **Sharpa North** and **DexMate Vega U** will receive an additional bonus in the final score to recognize performance across both robotic embodiments.
+If a part does not satisfy its success condition, it receives 0 points for that trial.
 
 ## 🏅 Award
 Compete in a total of **$20K+** (Tentative) prize pool.
