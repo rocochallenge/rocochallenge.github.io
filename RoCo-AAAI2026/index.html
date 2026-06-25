@@ -103,6 +103,16 @@
   </nav>
 </header>
 
+<section class="competition-banner">
+  <div class="competition-banner__inner">
+    <span class="competition-banner__badge">New</span>
+    <p>
+      Join the <strong>2nd RoCo Challenge @ IROS 2026</strong> and help shape the next competition.
+      <a href="../RoCo-IROS2026/" class="competition-banner__link">Explore RoCo-IROS2026</a>
+    </p>
+  </div>
+</section>
+
 <!-- ===== 主视觉区（Hero Section） ===== -->
 <section class="hero">
   <img src="assets/images/hero_new.png" alt="BEHAVIOR-1K Hero" class="hero-img">
@@ -410,6 +420,40 @@
   background-color: #000;
   color: white;
   padding: 10px 40px;
+}
+.competition-banner {
+  background: linear-gradient(90deg, #fff4dc 0%, #ffe3bf 100%);
+  border-bottom: 1px solid #f0c88f;
+  padding: 14px 24px;
+}
+.competition-banner__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: #6b3f00;
+  font-weight: 600;
+}
+.competition-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ff8a00;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.competition-banner p {
+  margin: 0;
+}
+.competition-banner__link {
+  color: #b14c00;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .nav-bar {
   display: flex;
