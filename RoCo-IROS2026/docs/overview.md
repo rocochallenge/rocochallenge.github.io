@@ -98,8 +98,8 @@ A correctly assembled part is defined as a part that is successfully picked and 
 ## 📅 Time Schedule
 **Cadence:** Proposal review → Simulation Competition → Onsite finalist selection → Ongoing preparation
 
-- **July 7:** Proposal Deadline
-- **After July 7:** Pre-Finalists Announced
+- **July 12:** Proposal Deadline
+- **After July 12:** Pre-Finalists Announced
 - **Now – August:** Simulation Competition
 - **August 31:** Leaderboard Closes & Onsite Finalists Announced
 - **Now – September:** Ongoing Preparation
