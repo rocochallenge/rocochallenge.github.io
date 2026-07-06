@@ -28,6 +28,40 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ---
 
+## 🤖 Baselines
+
+To help teams get started, the devkit ships two reference policies. Both implement the same `Policy` interface (`task/policy_api.py`) and run through the standard harness, so you can benchmark against them or fork either as a starting point.
+
+### Scripted baseline
+
+`task/policies/baseline_scripted.py` is a rule-based reference: for each part it builds an end-effector waypoint path from `param_config.py`, follows it with Lula IK, and gates snap parts on the snap event. It needs no training and is the default policy:
+
+```bash
+uv run python task/run_pick_place.py \
+    --policy policies.baseline_scripted.BaselinePolicy
+```
+
+Use it to sanity-check your setup and as a lower bound to beat.
+
+### Learned baseline (Diffusion Policy)
+
+For learning-based approaches, the devkit includes a worked example that trains a Diffusion Policy on the released dataset and deploys it in the harness:
+
+1. **Data** — the released [HuggingFace dataset](https://huggingface.co/datasets/rocochallenge2025/rocochallenge2026_Industrial_Assembly) (LeRobot format: proprioceptive state + head/wrist RGB + actions).
+2. **Train** — fit a Diffusion Policy on that dataset with [LeRobot](https://github.com/huggingface/lerobot).
+3. **Deploy** — `task/policies/diffusion_lerobot.py` drives the `Policy` interface from the trained model. Because a torch/lerobot stack can't share Isaac Sim's interpreter, the model runs in its own venv and the adapter talks to it over a pickle pipe (`task/dp_server.py`).
+
+```bash
+DP_CKPT=/path/to/checkpoint/pretrained_model \
+DP_SERVER_PY=/path/to/model-venv/bin/python \
+uv run python task/run_pick_place.py \
+    --policy policies.diffusion_lerobot.DiffusionLeRobotPolicy
+```
+
+This is a **reference pipeline to adapt, not a strong policy** — it shows how to wire a trained model end-to-end so you can drop in your own architecture, observation design, or training recipe. See the repository README ("Deploying a Learned Policy") for details.
+
+---
+
 ## 🤺 Tasks
 The robot must complete a sequence of 9 industrial assembly operations on a task board. The harness walks `part_order` top-to-bottom, and each row below corresponds to one episode of `Policy.act` / `Policy.is_done`.
 
