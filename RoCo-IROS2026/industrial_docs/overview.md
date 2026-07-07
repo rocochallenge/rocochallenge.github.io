@@ -30,7 +30,7 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ## 🤖 Baselines
 
-To help teams get started, the devkit ships two reference policies. Both implement the same `Policy` interface (`task/policy_api.py`) and run through the standard harness, so you can benchmark against them or fork either as a starting point.
+To help teams get started, the devkit ships multiple reference policy paths. They implement the same `Policy` interface (`task/policy_api.py`) and run through the standard harness, so you can benchmark against them or fork one as a starting point.
 
 ### Scripted baseline
 
@@ -59,6 +59,23 @@ uv run python task/run_pick_place.py \
 ```
 
 This is a **reference pipeline to adapt, not a strong policy** — it shows how to wire a trained model end-to-end so you can drop in your own architecture, observation design, or training recipe. See the repository README ("Deploying a Learned Policy") for details.
+
+### Learned baseline (pi0.5)
+
+The devkit also supports evaluating LeRobot pi0.5 checkpoints through the same sidecar deployment pattern. This path is intended for teams that want to start from a vision-language-action policy rather than a compact diffusion baseline:
+
+1. **Data** — use the released [HuggingFace dataset](https://huggingface.co/datasets/rocochallenge2025/rocochallenge2026_Industrial_Assembly), which provides the 44-D proprioceptive state, three RGB camera streams, and 14-D action labels.
+2. **Fine-tune** — fine-tune a pi0.5 checkpoint in a LeRobot environment. The task repository documents the expected dataset/action layout and checkpoint format.
+3. **Evaluate** — `task/policies/pi05_lerobot.py` runs inside Isaac Sim and talks to `task/pi05_server.py` running in the LeRobot environment. The bundled `scripts/eval_pi05_roco.sh` launcher records a rollout video and writes the standard results JSON.
+
+```bash
+LEROBOT_ROOT=/path/to/lerobot \
+PI05_CUDA_VISIBLE_DEVICES=0 \
+PI05_EVAL_MAX_STEPS=500 \
+./scripts/eval_pi05_roco.sh /path/to/checkpoint/pretrained_model
+```
+
+The current pi0.5 adapter expects the released dataset action layout (`left xyz + left xyz Euler + left gripper + right xyz + right xyz Euler + right gripper`). The public runner still holds the right arm fixed by default, so the adapter executes the left 7-D slice during rollout. See the task repository's [pi0.5 eval guide](https://github.com/rocochallenge/RoCo_TaskBoardAssembly/blob/main/docs/pi05_eval.md) and README for setup details.
 
 ---
 
