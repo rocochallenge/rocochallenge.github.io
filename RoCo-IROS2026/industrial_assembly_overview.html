@@ -15,6 +15,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
   <style>
     body {
       display: flex;
@@ -187,6 +191,95 @@
           hljs.highlightAll();
           highlightResourceLinks();
 
+          if (document.getElementById('leaderboard')) {
+              if ($.fn.DataTable.isDataTable('#leaderboard')) {
+                  $('#leaderboard').DataTable().destroy();
+              }
+
+              const parseNumeric = (data, fallback) => {
+                  const value = parseFloat(data);
+                  return Number.isFinite(value) ? value : fallback;
+              };
+
+              const table = $('#leaderboard').DataTable({
+                  "ajax": {
+                      "url": "industrial_docs/leaderboard.json",
+                      "dataSrc": ""
+                  },
+                  "columns": [
+                      { "data": null, "defaultContent": "", "searchable": false, "orderable": false },
+                      { "data": "team" },
+                      { "data": "affiliation" },
+                      { "data": "robot" },
+                      { "data": "method" },
+                      {
+                          "data": "score",
+                          "render": function(data, type) {
+                              if (type === 'sort') return parseNumeric(data, -Infinity);
+                              return data;
+                          }
+                      },
+                      {
+                          "data": "success_rate",
+                          "render": function(data, type) {
+                              if (type === 'sort') return parseNumeric(data, -Infinity);
+                              return data;
+                          }
+                      },
+                      {
+                          "data": "runtime",
+                          "render": function(data, type) {
+                              if (type === 'sort') return parseNumeric(data, Infinity);
+                              return data;
+                          }
+                      },
+                      { "data": "status" },
+                      { "data": "date" }
+                  ],
+                  "order": [
+                      [5, "desc"],
+                      [6, "desc"],
+                      [7, "asc"]
+                  ],
+                  "paging": false,
+                  "info": false,
+                  "searching": false
+              });
+
+              table.on('draw.dt', function () {
+                  const rows = table.rows({ search: 'applied', order: 'applied' }).data();
+                  const cells = table.column(0, { search: 'applied', order: 'applied' }).nodes();
+
+                  let currentRank = 1;
+                  let previousScore = null;
+                  let previousSuccessRate = null;
+                  let previousRuntime = null;
+
+                  for (let i = 0; i < rows.length; i++) {
+                      const currentScore = parseNumeric(rows[i].score, -Infinity);
+                      const currentSuccessRate = parseNumeric(rows[i].success_rate, -Infinity);
+                      const currentRuntime = parseNumeric(rows[i].runtime, Infinity);
+
+                      if (i > 0) {
+                          if (
+                              currentScore === previousScore &&
+                              currentSuccessRate === previousSuccessRate &&
+                              currentRuntime === previousRuntime
+                          ) {
+                              // Keep tied rank.
+                          } else {
+                              currentRank = i + 1;
+                          }
+                      }
+
+                      previousScore = currentScore;
+                      previousSuccessRate = currentSuccessRate;
+                      previousRuntime = currentRuntime;
+                      cells[i].innerHTML = currentRank;
+                  }
+              });
+          }
+
           sidebar.innerHTML = '';
           headers = content.querySelectorAll('h1, h2');
           headers.forEach((h) => {
@@ -199,6 +292,14 @@
           });
 
           highlightCurrent();
+
+          if (window.location.hash) {
+            const targetId = decodeURIComponent(window.location.hash.slice(1));
+            const target = document.getElementById(targetId);
+            if (target) {
+              setTimeout(() => target.scrollIntoView({ block: 'start' }), 0);
+            }
+          }
         })
         .catch(err => console.error(err));
     }

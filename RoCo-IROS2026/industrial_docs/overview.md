@@ -30,6 +30,37 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ---
 
+## 📊 Leaderboard
+
+*Last updated: July-23 2026*
+
+The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by success rate and then by shorter run time.
+
+<table id="leaderboard" class="display" style="width:100%; font-family: sans-serif;">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Team Name</th>
+            <th>Affiliation</th>
+            <th>Robot</th>
+            <th>Method</th>
+            <th>Score</th>
+            <th>Success Rate</th>
+            <th>Run Time (s)</th>
+            <th>Status</th>
+            <th>Submission Date</th>
+        </tr>
+    </thead>
+</table>
+
+<br>
+<br>
+
+**Submit your policy here:**
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSccX2z_FgEUCqkXOXR8kO5g2lBR08xoWpv1A8NBNpp2s0O_Sg/viewform" target="_blank" style="display: inline-block; padding: 10px 10px; background-color: #2e83a4; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-family: sans-serif;">🚀 Submit Your Policy</a>
+
+---
+
 ## 🤖 Baselines
 
 To help teams get started, the devkit ships multiple reference policy paths. They implement the same `Policy` interface (`task/policy_api.py`) and run through the standard harness, so you can benchmark against them or fork one as a starting point.
