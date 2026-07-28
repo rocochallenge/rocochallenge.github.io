@@ -32,7 +32,7 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ## 📊 Leaderboard
 
-*Last updated: July-23 2026*
+*Last updated: July-28 2026*
 
 The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by success rate and then by shorter run time.
 

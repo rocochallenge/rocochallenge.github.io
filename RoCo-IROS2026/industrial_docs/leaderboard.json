@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "team": "RocoBaseline-Pi_0.5",
+    "affiliation": "RoCo",
+    "robot": "DexMate Vega U",
+    "method": "pi0.5",
+    "score": "0",
+    "success_rate": "0",
+    "runtime": "",
+    "status": "Reference",
+    "date": "2026-07-28"
+  },
+  {
+    "team": "RocoBaseline-Diffusion Policy",
+    "affiliation": "RoCo",
+    "robot": "DexMate Vega U",
+    "method": "Diffusion Policy",
+    "score": "0",
+    "success_rate": "0",
+    "runtime": "",
+    "status": "Reference",
+    "date": "2026-07-28"
+  }
+]
