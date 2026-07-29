@@ -59,7 +59,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>DexMate Vega U</td>
             <td>pi0.5</td>
             <td>0.06</td>
-            <td>0.0067</td>
+            <td>0</td>
             <td></td>
             <td>Reference</td>
             <td>2026-07-28</td>
