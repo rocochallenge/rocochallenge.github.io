@@ -34,7 +34,7 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 *Last updated: July-29 2026*
 
-The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by success rate and then by shorter run time.
+The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by shorter run time.
 
 <table id="leaderboard" class="display" style="width:100%; font-family: sans-serif;">
     <thead>
@@ -45,7 +45,6 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <th>Robot</th>
             <th>Method</th>
             <th>Score</th>
-            <th>Success Rate</th>
             <th>Run Time (s)</th>
             <th>Status</th>
             <th>Submission Date</th>
@@ -59,7 +58,6 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>DexMate Vega U</td>
             <td>pi0.5</td>
             <td>0.06</td>
-            <td>0</td>
             <td></td>
             <td>Reference</td>
             <td>2026-07-28</td>
@@ -70,7 +68,6 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>RoCo</td>
             <td>DexMate Vega U</td>
             <td>Diffusion Policy</td>
-            <td>0</td>
             <td>0</td>
             <td></td>
             <td>Reference</td>
