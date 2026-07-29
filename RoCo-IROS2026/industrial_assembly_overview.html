@@ -161,6 +161,7 @@
    <script>
     const content = document.getElementById('markdown-content');
     const sidebar = document.getElementById('sidebar-links');
+    const docsVersion = '20260729-visible-leaderboard';
     let headers = [];
 
     function highlightResourceLinks() {
@@ -179,7 +180,8 @@
     }
 
     function loadMarkdown(file) {
-      fetch(file)
+      const versionedFile = `${file}${file.includes('?') ? '&' : '?'}v=${docsVersion}`;
+      fetch(versionedFile)
         .then(res => {
           if (!res.ok) throw new Error('Failed to load markdown: ' + file);
           return res.text();
@@ -202,39 +204,29 @@
               };
 
               const table = $('#leaderboard').DataTable({
-                  "ajax": {
-                      "url": "industrial_docs/leaderboard.json?v=20260729-pi05-score-006",
-                      "dataSrc": ""
-                  },
-                  "columns": [
-                      { "data": null, "defaultContent": "", "searchable": false, "orderable": false },
-                      { "data": "team" },
-                      { "data": "affiliation" },
-                      { "data": "robot" },
-                      { "data": "method" },
+                  "columnDefs": [
+                      { "targets": 0, "searchable": false, "orderable": false },
                       {
-                          "data": "score",
+                          "targets": 5,
                           "render": function(data, type) {
-                              if (type === 'sort') return parseNumeric(data, -Infinity);
+                              if (type === 'sort' || type === 'type') return parseNumeric(data, -Infinity);
                               return data;
                           }
                       },
                       {
-                          "data": "success_rate",
+                          "targets": 6,
                           "render": function(data, type) {
-                              if (type === 'sort') return parseNumeric(data, -Infinity);
+                              if (type === 'sort' || type === 'type') return parseNumeric(data, -Infinity);
                               return data;
                           }
                       },
                       {
-                          "data": "runtime",
+                          "targets": 7,
                           "render": function(data, type) {
-                              if (type === 'sort') return parseNumeric(data, Infinity);
+                              if (type === 'sort' || type === 'type') return parseNumeric(data, Infinity);
                               return data;
                           }
-                      },
-                      { "data": "status" },
-                      { "data": "date" }
+                      }
                   ],
                   "order": [
                       [5, "desc"],
@@ -256,9 +248,9 @@
                   let previousRuntime = null;
 
                   for (let i = 0; i < rows.length; i++) {
-                      const currentScore = parseNumeric(rows[i].score, -Infinity);
-                      const currentSuccessRate = parseNumeric(rows[i].success_rate, -Infinity);
-                      const currentRuntime = parseNumeric(rows[i].runtime, Infinity);
+                      const currentScore = parseNumeric(rows[i][5], -Infinity);
+                      const currentSuccessRate = parseNumeric(rows[i][6], -Infinity);
+                      const currentRuntime = parseNumeric(rows[i][7], Infinity);
 
                       if (i > 0) {
                           if (

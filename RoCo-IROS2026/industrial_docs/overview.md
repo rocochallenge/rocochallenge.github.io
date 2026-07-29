@@ -32,7 +32,7 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ## 📊 Leaderboard
 
-*Last updated: July-28 2026*
+*Last updated: July-29 2026*
 
 The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by success rate and then by shorter run time.
 
@@ -51,6 +51,32 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <th>Submission Date</th>
         </tr>
     </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>RocoBaseline-Pi_0.5</td>
+            <td>RoCo</td>
+            <td>DexMate Vega U</td>
+            <td>pi0.5</td>
+            <td>0.06</td>
+            <td>0.0067</td>
+            <td></td>
+            <td>Reference</td>
+            <td>2026-07-28</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>RocoBaseline-Diffusion Policy</td>
+            <td>RoCo</td>
+            <td>DexMate Vega U</td>
+            <td>Diffusion Policy</td>
+            <td>0</td>
+            <td>0</td>
+            <td></td>
+            <td>Reference</td>
+            <td>2026-07-28</td>
+        </tr>
+    </tbody>
 </table>
 
 <br>
