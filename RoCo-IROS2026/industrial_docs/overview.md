@@ -215,14 +215,9 @@ The trial ends after all 9 parts have been attempted or when the official step h
 ## 🧭 Score
 Each trial is scored by the number of successfully assembled parts, from 0 to 9.
 
-Official simulation evaluation uses a fixed per-trial horizon derived from the released demonstrations. Let `L_demo` be the mean episode length of the released demonstration set, measured in task-control steps. The released DexMate Vega U demonstration set contains 200 episodes and 121,454 frames at 10 Hz, so:
+Official simulation evaluation uses a fixed per-trial horizon of **1215 task-control steps**, corresponding to approximately **121.5 seconds of simulated task time** at the 10 Hz task-control rate. This horizon is set to 2x the mean demonstration length in the released DexMate Vega U dataset.
 
-```text
-L_demo = 121454 / 200 = 607.27 task-control steps
-T_max = ceil(2 * L_demo) = 1215 task-control steps
-```
-
-Each evaluation trial is capped at `T_max = 1215` task-control steps, corresponding to approximately 121.5 seconds of simulated task time at the 10 Hz task-control rate. A trial terminates when all 9 parts have been attempted or when `T_max` is reached, whichever comes first. Wall-clock runtime is not used for scoring.
+A trial terminates when all 9 parts have been attempted or when the step horizon is reached, whichever comes first. Wall-clock runtime is not used for scoring.
 
 The final score is the arithmetic mean of the assembled part counts across `N` independent trials:
 
