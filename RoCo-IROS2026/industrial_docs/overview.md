@@ -36,7 +36,7 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by shorter run time. Part columns report `part score (successful trials / evaluated trials)`, and the total score is the sum of the nine part scores.
 
-**Note:** The simulation leaderboard currently covers only the **DexMate Vega U** gripper-based track. The Sharpa North dexterous-hand track is not included in this simulation leaderboard.
+**Note:** The simulation leaderboard currently covers only the **DexMate Vega U** gripper-based track. The **Sharpa North** dexterous-hand track will be evaluated in the onsite track and is not included in this simulation leaderboard.
 
 <table id="leaderboard" class="display" style="width:100%; font-family: sans-serif;">
     <thead>
