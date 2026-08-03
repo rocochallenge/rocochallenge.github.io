@@ -161,7 +161,7 @@
    <script>
     const content = document.getElementById('markdown-content');
     const sidebar = document.getElementById('sidebar-links');
-    const docsVersion = '20260729-score-only-leaderboard';
+    const docsVersion = '20260803-part-score-leaderboard';
     let headers = [];
 
     function highlightResourceLinks() {
@@ -216,14 +216,28 @@
                       {
                           "targets": 6,
                           "render": function(data, type) {
+                              if (type === 'sort' || type === 'type') return parseNumeric(data, -Infinity);
+                              return data;
+                          }
+                      },
+                      {
+                          "targets": [7, 8, 9, 10, 11, 12, 13, 14, 15],
+                          "render": function(data, type) {
+                              if (type === 'sort' || type === 'type') return parseNumeric(data, -Infinity);
+                              return data;
+                          }
+                      },
+                      {
+                          "targets": 16,
+                          "render": function(data, type) {
                               if (type === 'sort' || type === 'type') return parseNumeric(data, Infinity);
                               return data;
                           }
                       }
                   ],
                   "order": [
-                      [5, "desc"],
-                      [6, "asc"]
+                      [6, "desc"],
+                      [16, "asc"]
                   ],
                   "paging": false,
                   "info": false,
@@ -239,8 +253,8 @@
                   let previousRuntime = null;
 
                   for (let i = 0; i < rows.length; i++) {
-                      const currentScore = parseNumeric(rows[i][5], -Infinity);
-                      const currentRuntime = parseNumeric(rows[i][6], Infinity);
+                      const currentScore = parseNumeric(rows[i][6], -Infinity);
+                      const currentRuntime = parseNumeric(rows[i][16], Infinity);
 
                       if (i > 0) {
                           if (

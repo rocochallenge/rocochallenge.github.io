@@ -4,19 +4,115 @@
     "affiliation": "RoCo",
     "robot": "DexMate Vega U",
     "method": "pi0.5",
+    "trials": 200,
     "score": "0.06",
+    "part_scores": {
+      "gear_20teeth": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "gear_60teeth": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "rod_16mm": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "bolt_8mm": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "usb_a": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "hdmi": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "pin": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "battery_size1": {
+        "score": "0.02",
+        "count": 4,
+        "trials": 200
+      },
+      "battery_size5": {
+        "score": "0.04",
+        "count": 8,
+        "trials": 200
+      }
+    },
     "runtime": "",
     "status": "Reference",
-    "date": "2026-07-28"
+    "date": "2026-08-03"
   },
   {
     "team": "RocoBaseline-Diffusion Policy",
     "affiliation": "RoCo",
     "robot": "DexMate Vega U",
     "method": "Diffusion Policy",
+    "trials": 200,
     "score": "0",
+    "part_scores": {
+      "gear_20teeth": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "gear_60teeth": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "rod_16mm": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "bolt_8mm": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "usb_a": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "hdmi": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "pin": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "battery_size1": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      },
+      "battery_size5": {
+        "score": "0.00",
+        "count": 0,
+        "trials": 200
+      }
+    },
     "runtime": "",
     "status": "Reference",
-    "date": "2026-07-28"
+    "date": "2026-08-03"
   }
 ]

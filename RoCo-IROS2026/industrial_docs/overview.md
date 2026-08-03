@@ -32,9 +32,11 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ## 📊 Leaderboard
 
-*Last updated: July-29 2026*
+*Last updated: August-03 2026*
 
-The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by shorter run time.
+The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by shorter run time. Part columns report `part score (successful trials / evaluated trials)`, and the total score is the sum of the nine part scores.
+
+**Note:** The simulation leaderboard currently covers only the **DexMate Vega U** gripper-based track. The Sharpa North dexterous-hand track is not included in this simulation leaderboard.
 
 <table id="leaderboard" class="display" style="width:100%; font-family: sans-serif;">
     <thead>
@@ -44,7 +46,17 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <th>Affiliation</th>
             <th>Robot</th>
             <th>Method</th>
+            <th>Trials</th>
             <th>Score</th>
+            <th>G20</th>
+            <th>G60</th>
+            <th>Rod</th>
+            <th>Bolt</th>
+            <th>USB</th>
+            <th>HDMI</th>
+            <th>Pin</th>
+            <th>Bat1</th>
+            <th>Bat5</th>
             <th>Run Time (s)</th>
             <th>Status</th>
             <th>Submission Date</th>
@@ -57,10 +69,20 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>RoCo</td>
             <td>DexMate Vega U</td>
             <td>pi0.5</td>
+            <td>200</td>
             <td>0.06</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.02 (4/200)</td>
+            <td>0.04 (8/200)</td>
             <td></td>
             <td>Reference</td>
-            <td>2026-07-28</td>
+            <td>2026-08-03</td>
         </tr>
         <tr>
             <td>2</td>
@@ -68,10 +90,20 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>RoCo</td>
             <td>DexMate Vega U</td>
             <td>Diffusion Policy</td>
+            <td>200</td>
             <td>0</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
+            <td>0.00 (0/200)</td>
             <td></td>
             <td>Reference</td>
-            <td>2026-07-28</td>
+            <td>2026-08-03</td>
         </tr>
     </tbody>
 </table>
