@@ -29,7 +29,6 @@ Simulation assets and real-robot data will be released for participant use. We s
 * Simulation dataset using DexMate Vega U: <https://huggingface.co/datasets/rocochallenge2025/rocochallenge2026_Industrial_Assembly>
 * Real-robot dataset using Sharpa North: <https://huggingface.co/datasets/SharpaIT/RoCo_TaskBoardAssembly>
 * Real-robot UMI dataset: <https://huggingface.co/datasets/rocochallenge2025/roco_iros2026_umi_dataset>
-* More datasets and resources will be released in the near future. Stay tuned!
 
 ---
 
