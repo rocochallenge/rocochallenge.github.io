@@ -1,5 +1,7 @@
 # Industrial Board Assembly at RoCo Challenge @ IROS 2026
 ## 🌐 Challenge Overview
+> **Note:** The online simulation competition currently includes only the **DexMate Vega U** gripper-based track. The onsite competition will include both the **DexMate Vega U** gripper-based track and the **Sharpa North** dexterous-hand track.
+
 The RoCo Challenge evaluates Physical AI agents through collaborative robotic assembly. The competition focuses on robots that can reason, manipulate, act, and generalize in the physical world, rather than simply follow isolated commands.
 
 RoCo evaluates agents across four core dimensions:
