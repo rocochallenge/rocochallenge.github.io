@@ -20,7 +20,7 @@ The combinatorial nature of brick assembly unlocks an **infinite task space**, m
 
 ## 📊 Leaderboard
 
-*Last updated: May-30 2026*
+*Last updated: Aug-23 2026*
 
 <table id="leaderboard" class="display" style="width:100%; font-family: sans-serif;">
     <thead>
