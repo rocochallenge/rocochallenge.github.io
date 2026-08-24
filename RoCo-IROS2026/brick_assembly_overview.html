@@ -134,8 +134,9 @@
                       { "data": "team" },
                       { "data": "affiliation"},
                       { "data": "robot" },
-                      { "data": "type1" },
-                      { "data": "type2" },
+                      { "data": "type1_evaluated" },
+                      { "data": "type2_evaluated" },
+                      { "data": "max_score" },
                       { 
                           "data": "runtime",
                           "render": function(data, type, row) {
@@ -153,8 +154,8 @@
                       { "data": "date" },
                   ],
                   "order": [
-                      [ 7, "desc" ], /* Primary: Success Rate (Highest first) */
-                      [ 6, "asc" ]   /* Tiebreaker: Assembly Time (Fastest first) */
+                      [ 9, "desc" ], /* Primary: Success Rate (Highest first) */
+                      [ 8, "asc" ]   /* Tiebreaker: Assembly Time (Fastest first) */
                   ],
                   "paging": false,
                   "info": false,

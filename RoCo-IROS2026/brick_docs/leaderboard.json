@@ -3,10 +3,22 @@
     "team": "Naive",
     "affiliation": "RoCo",
     "robot": "DexMate",
-    "type1": "1",
-    "type2": "1",
+    "type1_evaluated": "1",
+    "type2_evaluated": "1",
+    "max_score": "5",
     "score": "5",
     "runtime": "",
     "date": "2026-05-30"
+  },
+  {
+    "team": "The Master Builders",
+    "affiliation": "",
+    "robot": "DexMate",
+    "type1_evaluated": "15",
+    "type2_evaluated": "35",
+    "max_score": "6349",
+    "score": "1045",
+    "runtime": "",
+    "date": "2026-08-23"
   }
 ]

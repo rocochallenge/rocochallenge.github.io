@@ -29,11 +29,12 @@ The combinatorial nature of brick assembly unlocks an **infinite task space**, m
             <th>Team Name</th>
             <th>Affiliation</th>
             <th>Robot</th>
-            <th>Num. Type-1</th>
-            <th>Num. Type-2</th>
+            <th>Num. Type-1 Evaluated</th>
+            <th>Num. Type-2 Evaluated</th>
+            <th>Max Score</th>
             <th>Run Time (s)</th>
             <th>Score</th>
-            <th>Submission Date</th>
+            <th>Date</th>
         </tr>
     </thead>
 </table>
