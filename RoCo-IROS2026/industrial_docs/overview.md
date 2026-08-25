@@ -34,11 +34,13 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ## 📊 Leaderboard
 
-*Last updated: August-03 2026*
+*Last updated: August-26 2026*
 
 The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by shorter run time. Part columns report `part score (successful trials / evaluated trials)`, and the total score is the sum of the nine part scores.
 
 **Note:** The simulation leaderboard currently covers only the **DexMate Vega U** gripper-based track. The **Sharpa North** dexterous-hand track will be evaluated in the onsite track and is not included in this simulation leaderboard.
+
+**Fairness update:** Starting from this leaderboard update, official simulation leaderboard evaluation applies an evaluation-time XY position generalization to reduce overfitting to a single released initial state. For each trial, a deterministic per-trial random seed is used to sample uniform XY offsets in `[-1 cm, +1 cm]`. The task board receives one board offset. Each evaluated movable part receives an independent part offset, except for support-coupled parts physically resting on or inserted into the blue board (`gear_60teeth`, `rod_16mm`, and `bolt_8mm`), which share the board offset to preserve their initial support/contact relationships. Placement targets, snap targets, and grading targets are shifted consistently with the randomized board. Physics parameters, success criteria, scoring tolerances, and the evaluation horizon are unchanged.
 
 <table id="leaderboard" class="display" style="width:100%; font-family: sans-serif;">
     <thead>
@@ -67,6 +69,27 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
     <tbody>
         <tr>
             <td>1</td>
+            <td>DexAssemble Team</td>
+            <td></td>
+            <td>DexMate Vega U</td>
+            <td>fPCA Policy Search</td>
+            <td>200</td>
+            <td>1.30</td>
+            <td>0.00 (0/200)</td>
+            <td>0.14 (27/200)</td>
+            <td>0.34 (69/200)</td>
+            <td>0.14 (27/200)</td>
+            <td>0.07 (14/200)</td>
+            <td>0.07 (14/200)</td>
+            <td>0.04 (9/200)</td>
+            <td>0.33 (65/200)</td>
+            <td>0.18 (36/200)</td>
+            <td>129665</td>
+            <td>Verified</td>
+            <td>2026-08-26</td>
+        </tr>
+        <tr>
+            <td>2</td>
             <td>RocoBaseline-Pi_0.5</td>
             <td>RoCo</td>
             <td>DexMate Vega U</td>
@@ -87,7 +110,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>2026-08-03</td>
         </tr>
         <tr>
-            <td>2</td>
+            <td>3</td>
             <td>RocoBaseline-Diffusion Policy</td>
             <td>RoCo</td>
             <td>DexMate Vega U</td>
