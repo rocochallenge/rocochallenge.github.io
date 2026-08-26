@@ -74,16 +74,16 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>DexMate Vega U</td>
             <td>fPCA Policy Search</td>
             <td>200</td>
-            <td>1.30</td>
+            <td>1.305</td>
             <td>0.00 (0/200)</td>
-            <td>0.14 (27/200)</td>
-            <td>0.34 (69/200)</td>
-            <td>0.14 (27/200)</td>
-            <td>0.07 (14/200)</td>
-            <td>0.07 (14/200)</td>
-            <td>0.04 (9/200)</td>
-            <td>0.33 (65/200)</td>
-            <td>0.18 (36/200)</td>
+            <td>0.135 (27/200)</td>
+            <td>0.345 (69/200)</td>
+            <td>0.135 (27/200)</td>
+            <td>0.070 (14/200)</td>
+            <td>0.070 (14/200)</td>
+            <td>0.045 (9/200)</td>
+            <td>0.325 (65/200)</td>
+            <td>0.180 (36/200)</td>
             <td>129665</td>
             <td>Verified</td>
             <td>2026-08-26</td>
