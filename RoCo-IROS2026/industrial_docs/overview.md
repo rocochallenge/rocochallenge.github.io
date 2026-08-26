@@ -61,7 +61,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <th>Pin</th>
             <th>Bat1</th>
             <th>Bat5</th>
-            <th>Run Time (s)</th>
+            <th>Avg. Eval Time (s)</th>
             <th>Status</th>
             <th>Submission Date</th>
         </tr>
@@ -84,7 +84,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>0.85 (171/200)</td>
             <td>0.75 (150/200)</td>
             <td>0.67 (134/200)</td>
-            <td>133024</td>
+            <td>665</td>
             <td>Verified</td>
             <td>2026-08-26</td>
         </tr>
