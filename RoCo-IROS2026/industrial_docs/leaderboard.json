@@ -3,57 +3,57 @@
     "team": "DexAssemble Team",
     "affiliation": "",
     "robot": "DexMate Vega U",
-    "method": "fPCA Policy Search",
+    "method": "fPCA Policy Search V2",
     "trials": 200,
-    "score": "1.305",
+    "score": "6.91",
     "part_scores": {
       "gear_20teeth": {
-        "score": "0.00",
-        "count": 0,
+        "score": "0.03",
+        "count": 5,
         "trials": 200
       },
       "gear_60teeth": {
-        "score": "0.135",
-        "count": 27,
+        "score": "0.78",
+        "count": 156,
         "trials": 200
       },
       "rod_16mm": {
-        "score": "0.345",
-        "count": 69,
+        "score": "0.99",
+        "count": 198,
         "trials": 200
       },
       "bolt_8mm": {
-        "score": "0.135",
-        "count": 27,
+        "score": "0.88",
+        "count": 175,
         "trials": 200
       },
       "usb_a": {
-        "score": "0.070",
-        "count": 14,
+        "score": "0.97",
+        "count": 194,
         "trials": 200
       },
       "hdmi": {
-        "score": "0.070",
-        "count": 14,
+        "score": "0.99",
+        "count": 199,
         "trials": 200
       },
       "pin": {
-        "score": "0.045",
-        "count": 9,
+        "score": "0.85",
+        "count": 171,
         "trials": 200
       },
       "battery_size1": {
-        "score": "0.325",
-        "count": 65,
+        "score": "0.75",
+        "count": 150,
         "trials": 200
       },
       "battery_size5": {
-        "score": "0.180",
-        "count": 36,
+        "score": "0.67",
+        "count": 134,
         "trials": 200
       }
     },
-    "runtime": "129665",
+    "runtime": "133024",
     "status": "Verified",
     "date": "2026-08-26"
   },
