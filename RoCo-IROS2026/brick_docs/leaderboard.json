@@ -15,10 +15,21 @@
     "affiliation": "",
     "robot": "DexMate",
     "type1_evaluated": "15",
-    "type2_evaluated": "35",
+    "type2_evaluated": "25",
     "max_score": "6349",
     "score": "1045",
     "runtime": "",
     "date": "2026-08-23"
+  },
+  {
+    "team": "Latent Brick",
+    "affiliation": "",
+    "robot": "DexMate",
+    "type1_evaluated": "15",
+    "type2_evaluated": "25",
+    "max_score": "6349",
+    "score": "17",
+    "runtime": "",
+    "date": "2026-08-26"
   }
 ]
