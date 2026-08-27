@@ -90,7 +90,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
         </tr>
         <tr>
             <td>2</td>
-            <td>Mohammed Rajkotwala</td>
+            <td>Wannabe Engineers</td>
             <td></td>
             <td>DexMate Vega U</td>
             <td>CAD/FSM Scripted Policy</td>
