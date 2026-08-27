@@ -58,6 +58,64 @@
     "date": "2026-08-26"
   },
   {
+    "team": "Mohammed Rajkotwala",
+    "affiliation": "",
+    "robot": "DexMate Vega U",
+    "method": "CAD/FSM Scripted Policy",
+    "trials": 200,
+    "score": "2.75",
+    "part_scores": {
+      "gear_20teeth": {
+        "score": "0.10",
+        "count": 20,
+        "trials": 200
+      },
+      "gear_60teeth": {
+        "score": "0.48",
+        "count": 96,
+        "trials": 200
+      },
+      "rod_16mm": {
+        "score": "0.34",
+        "count": 67,
+        "trials": 200
+      },
+      "bolt_8mm": {
+        "score": "0.23",
+        "count": 46,
+        "trials": 200
+      },
+      "usb_a": {
+        "score": "0.30",
+        "count": 60,
+        "trials": 200
+      },
+      "hdmi": {
+        "score": "0.23",
+        "count": 46,
+        "trials": 200
+      },
+      "pin": {
+        "score": "0.17",
+        "count": 35,
+        "trials": 200
+      },
+      "battery_size1": {
+        "score": "0.51",
+        "count": 102,
+        "trials": 200
+      },
+      "battery_size5": {
+        "score": "0.40",
+        "count": 79,
+        "trials": 200
+      }
+    },
+    "runtime": "640",
+    "status": "Verified",
+    "date": "2026-08-27"
+  },
+  {
     "team": "RocoBaseline-Pi_0.5",
     "affiliation": "RoCo",
     "robot": "DexMate Vega U",
