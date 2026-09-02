@@ -34,7 +34,7 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ## 📊 Leaderboard
 
-*Last updated: August-27 2026*
+*Last updated: September-01 2026*
 
 The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by shorter run time. Part columns report `part score (successful trials / evaluated trials)`, and the total score is the sum of the nine part scores.
 
@@ -69,6 +69,27 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
     <tbody>
         <tr>
             <td>1</td>
+            <td>Team-Long</td>
+            <td></td>
+            <td>DexMate Vega U</td>
+            <td>Planning Policy</td>
+            <td>200</td>
+            <td>7.03</td>
+            <td>0.13 (26/200)</td>
+            <td>0.88 (176/200)</td>
+            <td>0.99 (199/200)</td>
+            <td>0.67 (133/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>0.96 (192/200)</td>
+            <td>0.80 (159/200)</td>
+            <td>0.90 (179/200)</td>
+            <td>0.70 (141/200)</td>
+            <td>307</td>
+            <td>Verified</td>
+            <td>2026-09-01</td>
+        </tr>
+        <tr>
+            <td>2</td>
             <td>DexAssemble Team</td>
             <td></td>
             <td>DexMate Vega U</td>
@@ -89,7 +110,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>2026-08-26</td>
         </tr>
         <tr>
-            <td>2</td>
+            <td>3</td>
             <td>Wannabe Engineers</td>
             <td></td>
             <td>DexMate Vega U</td>
@@ -110,7 +131,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>2026-08-27</td>
         </tr>
         <tr>
-            <td>3</td>
+            <td>4</td>
             <td>RocoBaseline-Pi_0.5</td>
             <td>RoCo</td>
             <td>DexMate Vega U</td>
@@ -131,7 +152,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>2026-08-03</td>
         </tr>
         <tr>
-            <td>4</td>
+            <td>5</td>
             <td>RocoBaseline-Diffusion Policy</td>
             <td>RoCo</td>
             <td>DexMate Vega U</td>

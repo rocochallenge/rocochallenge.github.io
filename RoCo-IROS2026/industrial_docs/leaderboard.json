@@ -1,5 +1,63 @@
 [
   {
+    "team": "Team-Long",
+    "affiliation": "",
+    "robot": "DexMate Vega U",
+    "method": "Planning Policy",
+    "trials": 200,
+    "score": "7.03",
+    "part_scores": {
+      "gear_20teeth": {
+        "score": "0.13",
+        "count": 26,
+        "trials": 200
+      },
+      "gear_60teeth": {
+        "score": "0.88",
+        "count": 176,
+        "trials": 200
+      },
+      "rod_16mm": {
+        "score": "0.99",
+        "count": 199,
+        "trials": 200
+      },
+      "bolt_8mm": {
+        "score": "0.67",
+        "count": 133,
+        "trials": 200
+      },
+      "usb_a": {
+        "score": "1.00",
+        "count": 200,
+        "trials": 200
+      },
+      "hdmi": {
+        "score": "0.96",
+        "count": 192,
+        "trials": 200
+      },
+      "pin": {
+        "score": "0.80",
+        "count": 159,
+        "trials": 200
+      },
+      "battery_size1": {
+        "score": "0.90",
+        "count": 179,
+        "trials": 200
+      },
+      "battery_size5": {
+        "score": "0.70",
+        "count": 141,
+        "trials": 200
+      }
+    },
+    "runtime": "307",
+    "status": "Verified",
+    "date": "2026-09-01"
+  },
+  {
     "team": "DexAssemble Team",
     "affiliation": "",
     "robot": "DexMate Vega U",
