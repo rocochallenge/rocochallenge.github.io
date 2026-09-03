@@ -31,5 +31,16 @@
     "score": "17",
     "runtime": "",
     "date": "2026-08-26"
+  },
+  {
+    "team": "IDEAL-RoCo",
+    "affiliation": "",
+    "robot": "DexMate",
+    "type1_evaluated": "15",
+    "type2_evaluated": "25",
+    "max_score": "6349",
+    "score": "26",
+    "runtime": "",
+    "date": "2026-09-03"
   }
 ]
