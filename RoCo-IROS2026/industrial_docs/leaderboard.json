@@ -174,6 +174,64 @@
     "date": "2026-08-27"
   },
   {
+    "team": "SZU-LycheeForge",
+    "affiliation": "",
+    "robot": "DexMate Vega U",
+    "method": "Waypoint Residual Policy",
+    "trials": 200,
+    "score": "1.38",
+    "part_scores": {
+      "gear_20teeth": {
+        "score": "0.04",
+        "count": 7,
+        "trials": 200
+      },
+      "gear_60teeth": {
+        "score": "0.25",
+        "count": 50,
+        "trials": 200
+      },
+      "rod_16mm": {
+        "score": "0.32",
+        "count": 64,
+        "trials": 200
+      },
+      "bolt_8mm": {
+        "score": "0.09",
+        "count": 17,
+        "trials": 200
+      },
+      "usb_a": {
+        "score": "0.08",
+        "count": 16,
+        "trials": 200
+      },
+      "hdmi": {
+        "score": "0.07",
+        "count": 15,
+        "trials": 200
+      },
+      "pin": {
+        "score": "0.06",
+        "count": 11,
+        "trials": 200
+      },
+      "battery_size1": {
+        "score": "0.27",
+        "count": 54,
+        "trials": 200
+      },
+      "battery_size5": {
+        "score": "0.21",
+        "count": 42,
+        "trials": 200
+      }
+    },
+    "runtime": "392",
+    "status": "Verified",
+    "date": "2026-09-03"
+  },
+  {
     "team": "RocoBaseline-Pi_0.5",
     "affiliation": "RoCo",
     "robot": "DexMate Vega U",
