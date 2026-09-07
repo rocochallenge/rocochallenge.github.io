@@ -69,6 +69,27 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
     <tbody>
         <tr>
             <td>1</td>
+            <td>DexAssemble Team</td>
+            <td></td>
+            <td>DexMate Vega U</td>
+            <td>fPCA Policy Search V3</td>
+            <td>200</td>
+            <td>8.62</td>
+            <td>0.923 (185/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>0.923 (185/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>0.923 (185/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>0.846 (169/200)</td>
+            <td>N/A</td>
+            <td>Verified</td>
+            <td>2026-09-07</td>
+        </tr>
+        <tr>
+            <td>2</td>
             <td>SteadyHand</td>
             <td></td>
             <td>DexMate Vega U</td>
@@ -89,7 +110,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>2026-09-04</td>
         </tr>
         <tr>
-            <td>2</td>
+            <td>3</td>
             <td>Team-Long</td>
             <td></td>
             <td>DexMate Vega U</td>
@@ -108,27 +129,6 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>307</td>
             <td>Verified</td>
             <td>2026-09-01</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>DexAssemble Team</td>
-            <td></td>
-            <td>DexMate Vega U</td>
-            <td>fPCA Policy Search V2</td>
-            <td>200</td>
-            <td>6.91</td>
-            <td>0.03 (5/200)</td>
-            <td>0.78 (156/200)</td>
-            <td>0.99 (198/200)</td>
-            <td>0.88 (175/200)</td>
-            <td>0.97 (194/200)</td>
-            <td>0.99 (199/200)</td>
-            <td>0.85 (171/200)</td>
-            <td>0.75 (150/200)</td>
-            <td>0.67 (134/200)</td>
-            <td>665</td>
-            <td>Verified</td>
-            <td>2026-08-26</td>
         </tr>
         <tr>
             <td>4</td>
