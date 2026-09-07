@@ -135,21 +135,21 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>Wannabe Engineers</td>
             <td></td>
             <td>DexMate Vega U</td>
-            <td>CAD/FSM Scripted Policy</td>
+            <td>CAD/FSM Scripted Policy V2</td>
             <td>200</td>
-            <td>2.75</td>
-            <td>0.10 (20/200)</td>
-            <td>0.48 (96/200)</td>
-            <td>0.34 (67/200)</td>
-            <td>0.23 (46/200)</td>
-            <td>0.30 (60/200)</td>
-            <td>0.23 (46/200)</td>
-            <td>0.17 (35/200)</td>
-            <td>0.51 (102/200)</td>
-            <td>0.40 (79/200)</td>
-            <td>640</td>
+            <td>5.42</td>
+            <td>0.21 (42/200)</td>
+            <td>0.47 (95/200)</td>
+            <td>0.21 (42/200)</td>
+            <td>0.105 (21/200)</td>
+            <td>0.842 (168/200)</td>
+            <td>0.895 (179/200)</td>
+            <td>0.684 (137/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>1.00 (200/200)</td>
+            <td>N/A</td>
             <td>Verified</td>
-            <td>2026-08-27</td>
+            <td>2026-09-07</td>
         </tr>
         <tr>
             <td>5</td>
