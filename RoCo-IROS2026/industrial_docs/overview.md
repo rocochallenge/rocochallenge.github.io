@@ -34,7 +34,7 @@ Simulation assets and real-robot data will be released for participant use. We s
 
 ## 📊 Leaderboard
 
-*Last updated: September-04 2026*
+*Last updated: September-07 2026*
 
 The Industrial Board Assembly leaderboard ranks submissions by the final score defined in the Score section. Higher score is better; ties are broken by shorter run time. Part columns report `part score (successful trials / evaluated trials)`, and the total score is the sum of the nine part scores.
 
@@ -174,6 +174,27 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
         </tr>
         <tr>
             <td>6</td>
+            <td>TEAM_ade</td>
+            <td></td>
+            <td>DexMate Vega U</td>
+            <td>RGB-D Offset Estimation + Scripted Policy</td>
+            <td>200</td>
+            <td>1.10</td>
+            <td>0.015 (3/200)</td>
+            <td>0.210 (42/200)</td>
+            <td>0.280 (56/200)</td>
+            <td>0.090 (18/200)</td>
+            <td>0.085 (17/200)</td>
+            <td>0.045 (9/200)</td>
+            <td>0.045 (9/200)</td>
+            <td>0.250 (50/200)</td>
+            <td>0.080 (16/200)</td>
+            <td>755.815</td>
+            <td>Verified</td>
+            <td>2026-09-04</td>
+        </tr>
+        <tr>
+            <td>7</td>
             <td>RocoBaseline-Pi_0.5</td>
             <td>RoCo</td>
             <td>DexMate Vega U</td>
@@ -194,7 +215,7 @@ The Industrial Board Assembly leaderboard ranks submissions by the final score d
             <td>2026-08-03</td>
         </tr>
         <tr>
-            <td>7</td>
+            <td>8</td>
             <td>RocoBaseline-Diffusion Policy</td>
             <td>RoCo</td>
             <td>DexMate Vega U</td>
