@@ -28,9 +28,9 @@
     "type1_evaluated": "15",
     "type2_evaluated": "25",
     "max_score": "6349",
-    "score": "17",
+    "score": "52",
     "runtime": "",
-    "date": "2026-08-26"
+    "date": "2026-09-06"
   },
   {
     "team": "IDEAL-RoCo",
@@ -42,5 +42,16 @@
     "score": "26",
     "runtime": "",
     "date": "2026-09-03"
+  },
+  {
+    "team": "TeamInterlock",
+    "affiliation": "",
+    "robot": "DexMate",
+    "type1_evaluated": "15",
+    "type2_evaluated": "25",
+    "max_score": "6349",
+    "score": "41",
+    "runtime": "",
+    "date": "2026-09-06"
   }
 ]
